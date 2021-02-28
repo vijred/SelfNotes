@@ -55,7 +55,7 @@ Tips:
 -----
 * How to correct the mistakes while pushing the data -> https://about.gitlab.com/blog/2018/08/08/git-happens/ 
 * Basic commands -> https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html 
-
+* How to remove sensitive data from one of the files in github -> https://rtyley.github.io/bfg-repo-cleaner/ 
 
 
 

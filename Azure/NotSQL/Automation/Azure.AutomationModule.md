@@ -6,7 +6,7 @@ Samples
 ------
 
 
-### Find the list of Modules insttalled on a given Automation Account
+### Find the list of Modules installed on a given Automation Account
 * **Purpose:** Get the list of modules installed on Azure Automation account:    
 ```
 Login-AzAccount
