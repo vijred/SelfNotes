@@ -11,5 +11,17 @@ Powershell Productivity tips usecases
     - `Get-Command -Module Az.Automation`
 * Uninstall a module
     - `Get-Module AzureRM.profile -ListAvailable | Uninstall-Module`
-* Trunst Gallary
+* Trust Gallary
     - `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`
+* How to assign a variable with multiple special characters
+``` 
+$var= @"
+{"instname":"MySQLInstance","version":"12.0.6433.1","patchstatus":"current"}
+"@
+```
+* Easiest way to keep track of Powershell console output, using transcript (Loggin)
+```
+Start-Transcript "Transcript_$(Get-Date -f MM-dd-yyyy_HHmmss).txt"
+Stop-transcript 
+```
+

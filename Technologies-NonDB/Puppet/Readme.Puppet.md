@@ -84,3 +84,11 @@ sudo systemctl start puppet
         notify  => Service['restartthisserice'],
         require => Package['package-sasl','package2-sasl-ldap'];
 
+        # Create an alias example
+        file { '/etc/profile.d/sample_alias.sh':
+        ensure =>  present,
+        owner  => 'root',
+        group  => 'root',
+        mode   => '0644',
+        source => 'puppet:///modules/mymodule/sample_alias.sh',
+        }
