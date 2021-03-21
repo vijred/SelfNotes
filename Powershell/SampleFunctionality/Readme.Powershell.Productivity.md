@@ -48,3 +48,23 @@ VERBOSE: Repository details, Name = 'PSGallery', Location = 'https://www.powersh
     - `Get-Module AzureRM.profile -ListAvailable | Uninstall-Module`
 * Trust Gallary
     - `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`
+* How to use Scriptblock variable
+```
+$servers=("Server1","Server2")
+
+$myScriptblock = @"
+IF (`$null -ne (Get-Content C:\ProgramData\PuppetLabs\facter\facts.d\mypuppetfact.txt | Select-String -Pattern "(=Pattern1|=Pattern2)")){
+c:\mydir\mycorrectionscript.ps1 -var1 value1 -var2 value2 -var3 value3
+}else{
+	write-output "mypuppetfact pattern is inaccurate, no action will be taken"
+}
+"@
+
+$NewScriptBlock = [scriptblock]::Create($myScriptblock)
+
+Invoke-Command -ComputerName dbadbwdvw1 -ScriptBlock $NewScriptBlock
+foreach ($servername in $servers) {
+	Invoke-Command -ComputerName $servername -ScriptBlock $NewScriptBlock
+}
+```
+
