@@ -90,6 +90,11 @@ User Database
 CREATE USER newUser FOR LOGIN newUser WITH DEFAULT_SCHEMA=[dbo];
 EXEC sp_addrolemember 'db_owner', 'newUser';
 ```
+* How to remove a uer from a given role
+```
+Use DatabaseName
+EXEC sp_droprolemember 'db_owner', [UserName];
+```
 * Update DBOwner in Azure Database 
 ```
 ALTER AUTHORIZATION ON DATABASE::USERDATABASENAME to [ACCOUNTNAME]; 
