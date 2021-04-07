@@ -81,9 +81,19 @@ mongo --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$ex
 ```
 		mongodump --db dbName --out outFile --host "IP:PORT"  --username <user>  --password <pass>
 ```		
+* How backups work on mongodb
+    - regular backups works differently on mongoDB compare to traditional databases, refer to documentation @ https://docs.opsmanager.mongodb.com/current/tutorial/nav/backup-use-operations/ 
+    - Continues backups are managed through MongoDB ops-manager  
 * Active Connections on database: 
 ```
 		db.currentOp ()
+```
+* Drop a database
+```
+MongoDB Enterprise dbname:PRIMARY> use dbname
+#switched to db dbname
+MongoDB Enterprise dbname:PRIMARY> db.dropDatabase()
+
 ```
 * Active Sessions / Users on a Given server:
 ```
