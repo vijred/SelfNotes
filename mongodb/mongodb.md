@@ -95,6 +95,10 @@ MongoDB Enterprise dbname:PRIMARY> use dbname
 MongoDB Enterprise dbname:PRIMARY> db.dropDatabase()
 
 ```
+* Export DB (data dump)
+```
+ sudo mongodump --db DatabaneName --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username `whoami` --host `hostname`
+```
 * Active Sessions / Users on a Given server:
 ```
 			use config
