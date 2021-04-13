@@ -9,6 +9,10 @@ MongoDB info
 ```
 mongo --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username `whoami` -p --host `hostname` admin
 ```
+* How to connect mongodb using nonad account like superuser 
+```
+mongo --port 30000 --username superuser -p --host `hostname`
+```
 * Execute a command without connecting to mongodb shell 
 ```
 mongo --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username `whoami` -p --host `hostname` admin --quiet --eval "rs.isMaster().primary"
@@ -77,6 +81,10 @@ mongo --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$ex
 			cfg.members[1].priority = 1
 			rs.reconfig(cfg)
 ```
+* How to verify lag
+```
+rs.printSlaveReplicationInfo()
+```
 * Take backup of database: 
 ```
 		mongodump --db dbName --out outFile --host "IP:PORT"  --username <user>  --password <pass>
@@ -95,9 +103,11 @@ MongoDB Enterprise dbname:PRIMARY> use dbname
 MongoDB Enterprise dbname:PRIMARY> db.dropDatabase()
 
 ```
-* Export DB (data dump)
+* Export DB (data dump) / Import database 
 ```
  sudo mongodump --db DatabaneName --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username `whoami` --host `hostname`
+
+mongorestore --db DatabaseName --noIndexRestore --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username `whoami` --host `hostname` /data/db/dump/location/
 ```
 * Active Sessions / Users on a Given server:
 ```
