@@ -3,6 +3,8 @@
 
 Server related commands
 -----------------------
+* Find Server version 
+    - `cat /etc/os-release`
 * Recent logins on a Server 
     - `last`
 * Server Login/Password alternative
@@ -11,7 +13,8 @@ Server related commands
         - Tip: Make sure to update the permissions of Private key that only you can access, scp can be used to topy the files to different server 
 * Alias: Create an Alias
     - `alias myls="ls -ltr"`
-
+* chkconfig 
+    - `chkconfig` command is used to list all available services and view or update their run level settings. In simple words it is used to list current startup information of services or any particular service
 
 File related commands
 ---------------------
