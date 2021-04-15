@@ -22,3 +22,16 @@ END
 ```
 
 
+
+## Firewall rules management on given server
+```
+# Find all Firewall rules 
+SELECT * FROM sys.firewall_rules ORDER BY name;
+
+#Add a server-level IP firewall rule.
+EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
+   @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
+
+# Delete a server-level IP firewall rule, execute the sp_delete_firewall_rule stored procedure. The following example deletes the rule ContosoFirewallRule:
+EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
+```
