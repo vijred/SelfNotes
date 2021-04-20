@@ -33,3 +33,12 @@ FROM sys.dm_exec_procedure_stats AS d
 WHERE OBJECT_NAME(object_id, database_id) = @ProdName
 ORDER BY [total_worker_time] DESC;  
 ``` 
+
+
+* SQLCMD reference -> https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15
+```
+-- Sample to execute with Windows Authentication and Multisubnetfailover (-M indicates multisubnetfailover)
+
+SQLCMD.EXE -S "SHP13IMPDB2LSTNR\SHPDB13_SVC,21186" -Q "select @@SERVERNAME" -M 
+
+```
