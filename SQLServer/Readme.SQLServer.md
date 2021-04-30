@@ -42,3 +42,8 @@ ORDER BY [total_worker_time] DESC;
 SQLCMD.EXE -S "SHP13IMPDB2LSTNR\SHPDB13_SVC,21186" -Q "select @@SERVERNAME" -M 
 
 ```
+
+* Reporting Server default URL
+    - https://servername.mydomain.com/reportserver
+    - https://servername.mydomain.com/Reports
+

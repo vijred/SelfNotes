@@ -37,6 +37,11 @@ git remote set-url origin git@github.com:yourname/yourrepo.git
     - `git remote -v`
 * Find the differences in last 2 comments
     - `git diff -2`
+* Comment tree
+```
+git log --graph --decorate --pretty=oneline --abbrev-commit --all
+git log --all --graph --pretty=format:'%C(yellow)%h%Creset%C(blue)%d%Creset %C(white bold)%s%Creset %C(white dim)(%an on %ai [%ar])%Creset'
+```
 
 
 Branch:

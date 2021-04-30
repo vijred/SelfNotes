@@ -17,3 +17,11 @@ SELECT * FROM DBA_USERS
 ORDER BY created DESC;
 
 ```
+
+* How to find all tables in all Schemas 
+```
+SELECT DISTINCT OWNER, OBJECT_NAME 
+  FROM DBA_OBJECTS
+ WHERE OBJECT_TYPE = 'TABLE'
+ -- AND OBJECT_NAME = 'myTableName'
+ ```
