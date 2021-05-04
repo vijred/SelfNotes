@@ -61,7 +61,7 @@ mongo --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$ex
 ```		
 * Rotate Logs
 ```
-			db.adminCommand( { logRotate : 1 } ) -- From  https://wiki.paychex.com/pages/viewpage.action?pageId=668407173> 
+			db.adminCommand( { logRotate : 1 } ) 
 ```
 * Command to Exit / Quit:
  ```
@@ -234,4 +234,32 @@ mongorestore --db DatabaseName --noIndexRestore --port 30000 --authenticationMec
 * Storage:
 ```
     df -h
+```
+* How to execute a script against mongodb 
+```
+mongo --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username $(whoami) -p --host $(hostname -f) <database_name> <script_name.js>
+```
+* Sample Java script to add an index on mongodb
+```
+
+db = db.getSiblingDB('myDBName');
+
+print('************Sample Script to be executed on myDBName - Example ************************************');
+var startTime = new Date();
+
+db.Collectingname.createIndex(
+    {
+        'IndexColumnKey.IndexSubcolumn': 1
+    },
+    {name: 'IndexNamewhatever'}
+);
+
+var endTime = new Date();
+print('Start time '+ startTime);
+print('End time '+ endTime);
+print('Total Ellapsed Time: '+ (endTime - startTime));
+
+print('Indexs After Script: ');
+printjson(db.collectionname.getIndexes());
+
 ```
