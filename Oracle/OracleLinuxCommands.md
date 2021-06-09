@@ -82,3 +82,36 @@ GROUP BY S.sid, S.serial#, S.username, S.osuser, P.spid, S.module,
 S.program, TBS.block_size, T.tablespace
 ORDER BY sid_serial;
 ```
+
+* Sample trigger to capture login failures
+```
+DROP TABLE OPS$ORACLE.STATS$USER_LOGINFAIL CASCADE CONSTRAINTS;
+
+CREATE TABLE OPS$ORACLE.STATS$USER_LOGINFAIL
+(
+  USER_ID             VARCHAR2(100 BYTE),
+  HOST                VARCHAR2(255 BYTE),
+  OS_USERNAME         VARCHAR2(255 BYTE),
+  EXTENDED_TIMESTAMP  DATE
+)
+;
+
+
+CREATE OR REPLACE TRIGGER ops$oracle.failed_logon_trg
+  AFTER SERVERERROR ON DATABASE
+WHEN (
+ora_server_error(1)=1017
+      )
+BEGIN
+   insert into stats$USER_LOGINFAIL
+      (user_id, host, os_username, extended_timestamp)
+   values
+      (SYS_CONTEXT ('USERENV','AUTHENTICATED_IDENTITY'),
+      SYS_CONTEXT('USERENV','host'),
+      SYS_CONTEXT('USERENV','OS_USER'),
+      sysdate);
+      COMMIT;
+END failed_logon_trg
+;
+
+```

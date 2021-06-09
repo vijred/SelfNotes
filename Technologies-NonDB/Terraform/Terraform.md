@@ -30,7 +30,7 @@ All other commands:
 *  untaint       Remove the 'tainted' state from a resource instance
 *  version       Show the current Terraform version
 *  workspace     Workspace management
-
+*  reference - https://www.terraform.io/docs/cli/commands/state/show.html 
 
 Options
 --------

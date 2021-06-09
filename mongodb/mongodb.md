@@ -263,3 +263,14 @@ print('Indexs After Script: ');
 printjson(db.collectionname.getIndexes());
 
 ```
+
+* How to check if the server is config server or not
+```
+rs.status().configsvr
+```
+
+* What type of environemnts can be configured?
+    - Standalone 
+    - Replica-set : Primary and multiple secondary servers 
+    - sharded cluster : More than one Shard/Replica-set + Config Servers (This can be a Replicaset) + mongoS 
+

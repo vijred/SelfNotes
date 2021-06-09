@@ -35,3 +35,12 @@ Size related commands
 ---------------------
 * Size of files `du -sk mongo*`
 
+* disk-free - shows available and used disk space on the Linux system.
+```
+# Disk free space in human readable format 
+df -h 
+```
+
+powershell
+--------
+* how to open powershell after installing - `pwsh`
