@@ -33,6 +33,7 @@ git remote set-url origin git@github.com:yourname/yourrepo.git
     - `Git status`
 * Create local git repo - Convert a project as local repo
     - `git init`
+
 * Find git remote server info
     - `git remote -v`
 * Find the differences in last 2 comments
@@ -61,6 +62,4 @@ Tips:
 * How to correct the mistakes while pushing the data -> https://about.gitlab.com/blog/2018/08/08/git-happens/ 
 * Basic commands -> https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html 
 * How to remove sensitive data from one of the files in github -> https://rtyley.github.io/bfg-repo-cleaner/ 
-
-
-
+* Troubleshoot gitbug certificate issues - https://stackoverflow.com/questions/23885449/unable-to-resolve-unable-to-get-local-issuer-certificate-using-git-on-windows
