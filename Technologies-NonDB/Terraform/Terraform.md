@@ -40,3 +40,15 @@ Global options (use these before the subcommand, if any):
   -help         Show this help output, or the help for a specified subcommand.
   -version      An alias for the "version" subcommand.
 
+
+How-to:
+-------
+* How to pass variables example:
+  - terraform plan --var-file="./sample1.tf.vars" --out myplan
+
+* How to apply with auto-approve:
+  - terraform apply --var-file="./sample1.tf.vars" -auto-approve
+
+* How to apply a generated plan 
+  - terraform apply "myplan" -auto-approve
+

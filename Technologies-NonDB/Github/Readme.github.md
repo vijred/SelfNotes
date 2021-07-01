@@ -13,6 +13,7 @@ git push
 * How to clone a new Repo Example
 ```
 git clone https://github.com/vijred/Powershell.git
+git clone https://orgname@dev.azure.com/prgname/Project1/_git/Project1 c:\VJ\otherrepos\AzureDevops\Project1 --progress
 ```
 * How to pull latest version 
 ```
@@ -55,6 +56,14 @@ Branch:
     - `git checkout BranchName`
 * Delete a branch
     - `git branch -D DeletingBranchName`
+
+
+Config
+------
+* How to edit gitconfig file
+    -   `git config --global --edit` 
+* Disable SSL Verify
+    -   `git config --global http.sslVerify false`
 
 
 Tips:
