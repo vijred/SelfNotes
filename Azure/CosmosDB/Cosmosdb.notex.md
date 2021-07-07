@@ -14,3 +14,55 @@ APIs
 cosmosdb using powershell
 -------------------------
 * Module name - `cosmosdb`
+
+* Sample cosmosdb commands 
+    -   Get-CosmosDbAccount
+    -   Get-CosmosDbAccount
+    -   Get-CosmosDbCollection
+    -   Get-CosmosDbDocument
+
+* Example
+
+```
+
+$resourceGroupName = "sample-cosmos"
+$cosmosDbAccountName = "sample-vj-cosmos"
+$databaseName = "sample-db1"
+$cosmosDbContext = New-CosmosDbContext -Account $cosmosDbAccountName -Database $databaseName -ResourceGroup $resourceGroupName    
+
+Get-CosmosDbAccount
+Get-CosmosDbAccount -Name "sample-cosmos" -ResourceGroupName $resourceGroupName 
+Get-CosmosDbCollection -Context $cosmosDbContext
+Get-CosmosDbDocument -Context $cosmosDbContext -CollectionId container2
+
+
+# insert a document 
+$document = @"
+{
+        "name": "vijay"
+}
+"@
+New-CosmosDbDocument -Context $cosmosDbContext -CollectionId container2  -DocumentBody $document -Verbose -PartitionKey "vijay"
+
+
+# Insert multiple documents 
+for($i=0;$i -lt 1000; $i++)
+{
+    $partitionvalue = "vijay$($i)"
+    $document=@"
+    {
+    "id": "$([Guid]::NewGuid().ToString())",
+            "name": "$($partitionvalue)",
+            "Insertdatetime": "$(get-date)"
+    }
+"@
+    New-CosmosDbDocument -Context $cosmosDbContext -CollectionId container2  -DocumentBody $document -Verbose -PartitionKey $partitionvalue
+}
+
+# More examples: Get-help New-CosmosDbDocument -example 
+```
+
+
+
+
+
