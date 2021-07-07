@@ -1,4 +1,4 @@
-CosmosDB
+
 ========
 
 APIs 
@@ -11,3 +11,6 @@ APIs
 
 
 
+cosmosdb using powershell
+-------------------------
+* Module name - `cosmosdb`
