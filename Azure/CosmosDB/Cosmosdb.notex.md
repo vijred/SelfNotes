@@ -62,7 +62,15 @@ for($i=0;$i -lt 1000; $i++)
 # More examples: Get-help New-CosmosDbDocument -example 
 ```
 
+* Cosmosdb documentation 
+    -   https://docs.microsoft.com/en-us/azure/cosmos-db/ 
 
+How to - CosmosDB
+=================
 
-
-
+* Cosmosdb Security 
+    -   https://docs.microsoft.com/en-us/azure/cosmos-db/secure-access-to-data
+* configure RBAC to cosmosdb
+    -   https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac#role-definitions
+* Cosmosdb Roles and permissions 
+    -   https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb 

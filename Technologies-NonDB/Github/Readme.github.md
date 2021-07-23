@@ -44,7 +44,46 @@ git remote set-url origin git@github.com:yourname/yourrepo.git
 git log --graph --decorate --pretty=oneline --abbrev-commit --all
 git log --all --graph --pretty=format:'%C(yellow)%h%Creset%C(blue)%d%Creset %C(white bold)%s%Creset %C(white dim)(%an on %ai [%ar])%Creset'
 ```
+* Save the state of your current branch in another branch, named mybackup
+```
+git commit -a -m "Backup."
+git branch mybackup
+```
+* Fetch the remote branch and set your branch to match it. (Example: pull changes from Master to your local devbranch)
+```
+git fetch origin
+git reset --hard origin/master
+```
+* Remove additional files from local branch 
+```
+# Verify list of files that will be removed
+git clean -n -f
 
+#remove these files 
+git clean -f
+```
+* Pull master bits to mylocalbranch 
+```
+# Option-0 is to pull from master 
+git checkout mylocalbranch
+git pull origin master
+
+# Optipon-1 is to rebase 
+git checkout mylocalbranch
+git rebase master
+
+#Option-2 is merge
+git checkout mylocalbranch
+git merge origin/master
+
+# Option-3 Save work and merge again 
+git stash // to save all existing changes in local branch
+git checkout master // Switch to master branch from branch-1
+git pull // take changes from the master
+git checkout branch-1 // switchback to your own branch
+git rebase master // merge all the changes and move you git head  forward
+git stash apply // reapply all you saved changes 
+```
 
 Branch:
 -------
