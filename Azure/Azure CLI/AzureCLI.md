@@ -12,3 +12,8 @@ Azure CLI
 * Select a subscription
     - `az account set --subscription "My Demos"`
 
+
+FAQ
+====
+* Subscription is missing from az account list but I can see it from Portal
+    -   Refresh the list using connecd `az account list --refresh`
