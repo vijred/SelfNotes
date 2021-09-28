@@ -15,6 +15,11 @@ git push
 git clone https://github.com/vijred/Powershell.git
 git clone https://orgname@dev.azure.com/prgname/Project1/_git/Project1 c:\VJ\otherrepos\AzureDevops\Project1 --progress
 ```
+* How to clone a branch from remote to local 
+```
+# Use `-b branchname` option
+git clone -b develop https://github.com/vijred/Powershell.git
+```
 * How to pull latest version 
 ```
 git pull

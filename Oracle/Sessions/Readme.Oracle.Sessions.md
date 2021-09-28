@@ -12,8 +12,8 @@ Oracle Sessions
 * Kill a session
     - Use Toadd: Database -> Monitor -> Session Browser -> Right click and kill the session 
     - `ALTER SYSTEM KILL SESSION 'sid,serial#'`;
-
-
-
+* SQL statemetns for Storage 
+    -   `select sum(bytes)/1024/1024 size_in_mb from dba_data_files`
+    -   `select * from dba_segments order by BYTES DESC`
 
 
