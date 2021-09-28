@@ -56,3 +56,8 @@ select * from SYS.DBA_AUDIT_SESSION;
 ```
 
 
+* SQL statemetns for Storage 
+```
+select sum(bytes)/1024/1024 size_in_mb from dba_data_files
+select * from dba_segments order by BYTES DESC
+```
