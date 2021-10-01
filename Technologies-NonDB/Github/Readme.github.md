@@ -15,6 +15,8 @@ git push
 git clone https://github.com/vijred/Powershell.git
 git clone https://orgname@dev.azure.com/prgname/Project1/_git/Project1 c:\VJ\otherrepos\AzureDevops\Project1 --progress
 ```
+
+
 * How to clone a branch from remote to local 
 ```
 # Use `-b branchname` option
@@ -24,11 +26,27 @@ git clone -b develop https://github.com/vijred/Powershell.git
 ```
 git pull
 ```
+
+* How switch to remote branch
+```
+git fetch --all
+git checkout ＜remotebranch＞
+git checkout -b ＜remotebranch＞ origin/＜remotebranch＞ ## On a few older versions 
+```
+
+* How to reset new branch to one of the remote branch
+```
+git fetch --all
+git checkout -b ＜branchname＞
+git reset --hard origin/＜branchname＞
+```
+
 * Hardreset
 ```
 git fetch origin
 git reset --hard origin/master
 ```
+
 * Credential Management commands
 ```
 Credential Management:
@@ -94,6 +112,8 @@ Branch:
 -------
 * List all branches in local repo
     - `Git branch`
+* List all branches from Server 
+    - `git branch -a`
 * Create new branch 
     - `git branch -b NewBranchname`
 * Switch a branch
