@@ -61,3 +61,36 @@ select * from SYS.DBA_AUDIT_SESSION;
 select sum(bytes)/1024/1024 size_in_mb from dba_data_files
 select * from dba_segments order by BYTES DESC
 ```
+
+* Sample trigger to capture login failures
+```
+DROP TABLE OPS$ORACLE.STATS$USER_LOGINFAIL CASCADE CONSTRAINTS;
+
+CREATE TABLE OPS$ORACLE.STATS$USER_LOGINFAIL
+(
+  USER_ID             VARCHAR2(100 BYTE),
+  HOST                VARCHAR2(255 BYTE),
+  OS_USERNAME         VARCHAR2(255 BYTE),
+  EXTENDED_TIMESTAMP  DATE
+)
+;
+
+
+CREATE OR REPLACE TRIGGER ops$oracle.failed_logon_trg
+  AFTER SERVERERROR ON DATABASE
+WHEN (
+ora_server_error(1)=1017
+      )
+BEGIN
+   insert into stats$USER_LOGINFAIL
+      (user_id, host, os_username, extended_timestamp)
+   values
+      (SYS_CONTEXT ('USERENV','AUTHENTICATED_IDENTITY'),
+      SYS_CONTEXT('USERENV','host'),
+      SYS_CONTEXT('USERENV','OS_USER'),
+      sysdate);
+      COMMIT;
+END failed_logon_trg
+;
+
+```
