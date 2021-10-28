@@ -94,3 +94,7 @@ END failed_logon_trg
 ;
 
 ```
+* Learning Oracle pointers 
+  - https://education.oracle.com/
+  - https://learn.oracle.com/ols/learning-path/become-an-oci-architect-associate/35644/98012
+  

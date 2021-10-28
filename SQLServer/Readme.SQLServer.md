@@ -47,3 +47,6 @@ SQLCMD.EXE -S "SHP13IMPDB2LSTNR\SHPDB13_SVC,21186" -Q "select @@SERVERNAME" -M
     - https://servername.mydomain.com/reportserver
     - https://servername.mydomain.com/Reports
 
+
+* Give me a good reference to connection strings
+    -   https://www.connectionstrings.com/sql-server/

@@ -44,3 +44,11 @@ df -h
 powershell
 --------
 * how to open powershell after installing - `pwsh`
+
+Network related commands
+--------------
+* IP Configuration command - `ifconfig`
+
+How to update server name (At least a VM Name)
+--------------
+    -   This needs to be updated in 2 files /etc/hosts and /etc/hostname, quick ref - `sudo vi /etc/hostname` `sudo vi /etc/hosts`
