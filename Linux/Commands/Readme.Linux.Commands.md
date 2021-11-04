@@ -16,6 +16,26 @@ Server related commands
 * chkconfig 
     - `chkconfig` command is used to list all available services and view or update their run level settings. In simple words it is used to list current startup information of services or any particular service
 
+
+Shell related commands
+----------------------
+* How to check edit mode 
+```
+if [[ -o emacs ]]; then
+  echo emacs mode
+elif [[ -o vi ]]; then
+  echo vi mode
+else
+  echo neither
+fi
+```
+
+* how to set emacs mode 
+    -   `set -o emacs`
+
+* what is default profile file 
+    -   `~/.bash_profile`
+
 File related commands
 ---------------------
 * List file permissions in Number format
@@ -29,6 +49,8 @@ File related commands
     - `tail filename.txt`
 * Display First 10 lines of a file
     - `head -10 mongodb.log`
+
+
 
 
 Size related commands

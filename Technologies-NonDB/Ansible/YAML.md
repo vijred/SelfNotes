@@ -78,4 +78,6 @@ employee:
             amount: 3400
 ```
 
+* Shre one of the ways to verify YAML format 
+    -   https://yamllink.com 
 

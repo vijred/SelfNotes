@@ -29,32 +29,6 @@ Ansible
   
   FAQ
   ------
-  * YAML - What is difference between Dictionary and List(Array) or List of Dictionaries(Map), value key pair 
-    - 
-```
-List is ordered collection 
- - SampleList1
- - SampleList2
- - SampleList3
-
-Dictionary is unordered   
- -  SampleDictionary1: Value1
-    Property2: Value2
-    PropertyofDictionary3: 
-      Property1ofdictionary3: value4
-      Property2ofdictionary3: value5
- -  SampleDictionary1: Value10
-    Property2: Value20
-    PropertyofDictionary3: 
-      Property1ofdictionary3: value40
-      Property2ofdictionary3: value50
- -  SampleDictionary1: Value11
-    Property2: Value12
-    PropertyofDictionary3: 
-      Property1ofdictionary3: value14
-      Property2ofdictionary3: value15
-
-```
 
 * How to comment a TAML file
   * anything starting with # is a comment - `#`
@@ -98,5 +72,30 @@ ansible target1 -m ping -i inventory.txt
 ```
 * What is Ansible default configuration file
   - `/etc/ansible/ansible.cfg`
+
+* Soem example of YAML
+  - https://github.com/vijred/SelfNotes/blob/master/Technologies-NonDB/Ansible/YAML.md
+
+
+* What is Playbook
+  - Playbook is a single YAML file wiht set of activities/Tasks
+
+* what is Task
+  - Task is defined activity like run a script or install a package etc on a given host. 
+
+* What is a module
+  - A module is a reusable, standalone script that Ansible runs on your behalf, either locally or remotely. Modules interact with your local machine, an API, or a remote system to perform specific tasks like changing a database password or spinning up a cloud instance
+
+* example of modules 
+  - command, script, yum, service , etc . Reference: https://docs.ansible.com/ansible/2.9/modules/modules_by_category.html 
+
+* Can a playbook contain 2 plays?
+  - yes, playbook can contain list of plays. It can be treated as list of dictionaries, example dictionary with properties name, hosts, and tasks 
+
+* Order of proiperties in a dictionary matter? 
+  - No Order of properties does NOT matter in a dictionary , however order matters in list/array
+
+* How to run the tasks on multiple servers in parallel
+  * inventory file can contain groups, running tasks against group executes the tasks against all servers in the group in parallel 
 
 
