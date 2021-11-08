@@ -51,3 +51,21 @@ Commands on Goldengate console
 * How to add a new job 
     -   `shell ogg_cdc_cleanup_setup.bat createJob SQLLoginName SQLLoginPassword Databasename SQLInstanceName SchemaName`
 
+
+* How to stop Goldengate Manager 
+	-	`stop mgr `
+	-	`stop mgr !` - ! avoids confirmation`
+
+* Delete an extract 
+	-	`Deleted EXTRACT Extractname`
+	
+* Delete Goldengate Service 
+	-	`C:\goldengatepath\install.exe DELETESERVICE`
+
+Delete a folder 
+rm C:\gg\ntest6d\ -Recurse -Force
+Remove-OdbcDsn -Name ntest7d -DsnType System
+
+
+* Good reference for GG commands
+	-	https://satya-dba.blogspot.com/2012/02/ggsci-goldengate-command-interpreter.html
