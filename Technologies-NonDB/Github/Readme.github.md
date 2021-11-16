@@ -121,6 +121,20 @@ Branch:
 * Delete a branch
     - `git branch -D DeletingBranchName`
 
+* How to checkout a new branch with non-master branch as base. Example, checkout feature/buildsql with develop as base branch 
+```
+#Fetch remote branches
+git fetch --all
+
+# switch to develop branch
+git checkout -b develop  origin/develop
+ 
+#Create and checkout new feature branch
+git checkout -b feature/buildsql
+```
+------
+
+
 
 Config
 ------
@@ -128,6 +142,12 @@ Config
     -   `git config --global --edit` 
 * Disable SSL Verify
     -   `git config --global http.sslVerify false`
+
+* How to edit gitconfig file
+    -   `git config --global --edit` 
+* Disable SSL Verify
+    -   `git config --global http.sslVerify false`
+
 
 
 Tips:

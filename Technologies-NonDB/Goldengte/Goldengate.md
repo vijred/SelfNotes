@@ -62,9 +62,11 @@ Commands on Goldengate console
 * Delete Goldengate Service 
 	-	`C:\goldengatepath\install.exe DELETESERVICE`
 
-Delete a folder 
-rm C:\gg\ntest6d\ -Recurse -Force
-Remove-OdbcDsn -Name ntest7d -DsnType System
+* Few useful GG commands to debug 
+```
+stats e_hrpm
+view report e_hrpm
+```
 
 
 * Good reference for GG commands
