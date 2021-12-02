@@ -104,11 +104,37 @@ MongoDB Enterprise dbname:PRIMARY> db.dropDatabase()
 
 ```
 * Export DB (data dump) / Import database 
+    -   Sample json to import - Ref: https://media.mongodb.org/zips.json
 ```
  sudo mongodump --db DatabaneName --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username `whoami` --host `hostname`
-
 mongorestore --db DatabaseName --noIndexRestore --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username `whoami` --host `hostname` /data/db/dump/location/
+
+# Export all DBs
+mongodump --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username <AD username> -p "<AD Password>" --host <host you're exporting from>
+
+# Export single DB
+mongodump --db <db_name> --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username <AD username> -p "<AD Password>" --host <host you're exporting from>
+
+# Export single collection
+mongodump --db <db_name> --collection=<collection_name> --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username <AD username> -p "<AD Password>" --host <host you're exporting from>
+
+# into .csv or JSON format 
+mongoexport --host <host you're exporting from> --authenticationMechanism=PLAIN --authenticationDatabase='$external'  --username <AD username> -p "<AD Password>"  --collection <collection_name> --db <database_name> --out=events.json
+
+# import all DBs
+mongorestore  --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username <AD username> -p "<AD Password>" --host <host you're importing to> /location/of/dump/file/generated/from/mongodump/
+
+# Import single DB
+mongorestore  --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username <AD username> -p "<AD Password>" --host <host you're importing to> /location/of/dump/file/generated/from/mongodump/
+
+# Import a collection from JSON
+mongoimport --host <host you're exporting from> --authenticationMechanism=PLAIN --authenticationDatabase='$external'  --username <AD username> -p "<AD Password>"  --collection <collection_name> --db <database_name> --file=/data/db/dump/events.jsonExample:
+
+# Import a collection
+mongorestore  --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username <AD username> -p "<AD Password>" --host <host you're importing to> /location/of/dump/file/generated/from/mongodump/
+
 ```
+
 * Active Sessions / Users on a Given server:
 ```
 			use config
@@ -274,3 +300,5 @@ rs.status().configsvr
     - Replica-set : Primary and multiple secondary servers 
     - sharded cluster : More than one Shard/Replica-set + Config Servers (This can be a Replicaset) + mongoS 
 
+* MongoDB Connecting string Samples 
+    -   https://docs.mongodb.com/manual/reference/connection-string/#mongodb-uri 

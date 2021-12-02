@@ -204,3 +204,13 @@ target2
 * how to pass additional parameters to Ansible playbook while executing - 
     -   add additional input parameter `-e`, provide details `variablename=variablevalue`. Example: `-e "vault_token=xyzxyzsaf"`
 
+* How to redirect all ansible logs to a file. 
+  - Sample :  
+```
+ANSIBLE_LOG_PATH=<<path_to_the_logfile>>
+eg: ANSIBLE_LOG_PATH=/home/vj/mywork_$(date "+%Y%m%d%H%M%S").log
+
+an example for adding replica member:
+sudo ANSIBLE_LOG_PATH=/tmp/vjAnsibleLogs_$(date "+%Y%m%d%H%M%S").log ansible-playbook /opt/ansible/xyz/playbooks/myplaybook.yml -e "input_file=/home/myinputfile.yml"
+```
+
