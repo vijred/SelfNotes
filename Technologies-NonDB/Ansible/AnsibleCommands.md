@@ -202,7 +202,7 @@ target2
     -   roles_path in ansible configuration file (/etc/ansible/ansible.cfg) 
 
 * how to pass additional parameters to Ansible playbook while executing - 
-    -   add additional input parameter `-e`, provide details `variablename=variablevalue`. Example: `-e "vault_token=xyzxyzsaf"`
+    -   add additional input parameter `-e`, provide details `variablename=variablevalue`. Example: `-e "vault_token=xyzxyzsaf variable2=ThisisTestVariableForVar2"`
 
 * How to redirect all ansible logs to a file. 
   - Sample :  
@@ -214,3 +214,35 @@ an example for adding replica member:
 sudo ANSIBLE_LOG_PATH=/tmp/vjAnsibleLogs_$(date "+%Y%m%d%H%M%S").log ansible-playbook /opt/ansible/xyz/playbooks/myplaybook.yml -e "input_file=/home/myinputfile.yml"
 ```
 
+* what is `set_fact`
+  - when set_fact is used, those facts are in the context of host. These facts can be re-used in different plays as necessary. 
+
+
+* What is `assert`
+  - This is to validate given conditions , used at playbook level and can be used on Windows server as well 
+```
+- assert: { that: "ansible_os_family != 'RedHat'" }
+
+- assert:
+    that:
+      - "'foo' in some_command_result.stdout"
+      - number_of_the_counting == 3
+
+- name: After version 2.7 both 'msg' and 'fail_msg' can customize failing assertion message
+  assert:
+    that:
+      - my_param <= 100
+      - my_param >= 0
+      - testvariable | default('') != ""
+    fail_msg: "'my_param' must be between 0 and 100"
+```     
+
+* How to set a runtime fact, example - 
+  - 
+```
+  hosts: localhost
+    # Set Up Playbook Run-Time Facts
+    - name: "vj_test_gg_on_windows_install - Set Up Playbook Run-Time Facts"
+      set_fact:
+        run_id: "{{ 9999999999999999999999 | random | to_uuid }}"  # Generate a Unique Run ID
+```

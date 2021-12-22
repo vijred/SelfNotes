@@ -96,6 +96,8 @@ ansible target1 -m ping -i inventory.txt
   - No Order of properties does NOT matter in a dictionary , however order matters in list/array
 
 * How to run the tasks on multiple servers in parallel
-  * inventory file can contain groups, running tasks against group executes the tasks against all servers in the group in parallel 
+  - inventory file can contain groups, running tasks against group executes the tasks against all servers in the group in parallel 
 
-
+* Ansible.windows namespace reference 
+  - https://docs.ansible.com/ansible/latest/collections/ansible/windows/index.html
+  

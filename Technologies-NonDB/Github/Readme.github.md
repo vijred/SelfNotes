@@ -135,6 +135,12 @@ git checkout -b feature/buildsql
 ------
 
 
+* How to checkout a single file from a different branch 
+```
+git checkout workign_branch               # first get back to workign_branch
+git checkout other_branch_name -- myfilename.yaml # then copy the version of app.js 
+                                  # from branch "other_branch_name"
+```
 
 Config
 ------

@@ -52,3 +52,10 @@ How-to:
 * How to apply a generated plan 
   - terraform apply "myplan" -auto-approve
 
+
+What is tained in Terraform
+---------------------------
+* When a resource is not created completed as planned, it is listed as tained resource. manually this resource can be corrected in statefile to using tain and untain commands.
+  - Ref: https://www.devopsschool.com/blog/terraform-taint-and-untaint-explained-with-example-programs-and-tutorials/ 
+
+  

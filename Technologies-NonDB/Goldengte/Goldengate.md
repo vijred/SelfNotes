@@ -61,6 +61,7 @@ Commands on Goldengate console
 	
 * Delete Goldengate Service 
 	-	`C:\goldengatepath\install.exe DELETESERVICE`
+    -   NOTE: Make sure to stop the service before deleting service, `STOP MANAGER [!]`
 
 * Few useful GG commands to debug 
 ```
