@@ -59,6 +59,13 @@ mongo --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$ex
 ```
     user admin; db.getRole("Rolename")
 ```		
+* find all users who have access on db
+```
+db.system.users.find({},{"_id" : 0, "user": 1, "roles" : 1})
+# Single user
+use admin
+db.system.users.find({"user" : "<AD Username>"},{"_id": 0, "user" : 1,"roles" : 1})
+``` 
 * Rotate Logs
 ```
 			db.adminCommand( { logRotate : 1 } ) 
@@ -300,5 +307,8 @@ rs.status().configsvr
     - Replica-set : Primary and multiple secondary servers 
     - sharded cluster : More than one Shard/Replica-set + Config Servers (This can be a Replicaset) + mongoS 
 
-* MongoDB Connecting string Samples 
-    -   https://docs.mongodb.com/manual/reference/connection-string/#mongodb-uri 
+* MongoDB Connection string Samples
+    - https://docs.mongodb.com/manual/reference/connection-string/#mongodb-uri 
+
+* Default mongodb config file on a linux server - 
+    - /etc/mongod.conf

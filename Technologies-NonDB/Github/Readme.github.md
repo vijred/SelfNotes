@@ -52,6 +52,14 @@ git reset --hard origin/master
 Credential Management:
 git remote
 git remote set-url origin git@github.com:yourname/yourrepo.git
+
+# How to remove credentials , usefule when password is reset
+git config --global --unset credential.helper
+git config --system --unset credential.helper
+
+# How to configure credentials to store
+git config --global credential.helper store
+
 ```
 * Check status of changes
     - `Git status`
@@ -142,6 +150,10 @@ git checkout other_branch_name -- myfilename.yaml # then copy the version of app
                                   # from branch "other_branch_name"
 ```
 
+* How to copy a single file from one branch to other 
+	-	Run following from destination branch 
+	-	`git restore --source SourceBranch relativePath/filename.yml`
+
 Config
 ------
 * How to edit gitconfig file
@@ -154,7 +166,9 @@ Config
 * Disable SSL Verify
     -   `git config --global http.sslVerify false`
 
-
+* How to link Local repo to remove Repo
+	-	git remote add origin https://github.com/vijred/myrepo.git
+	
 
 Tips:
 -----

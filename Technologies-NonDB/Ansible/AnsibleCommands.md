@@ -203,6 +203,13 @@ target2
 
 * how to pass additional parameters to Ansible playbook while executing - 
     -   add additional input parameter `-e`, provide details `variablename=variablevalue`. Example: `-e "vault_token=xyzxyzsaf variable2=ThisisTestVariableForVar2"`
+	-	-vvv parameter can be used to run playbook in verbos mode 
+
+* How to check Syntax 
+	-	Example: `ansible-playbook --syntax-check playbookname.yml`
+	
+* How to pass Private Key as parameter
+	-	Example : ` --private-key /root/.ssh/id_rsa`
 
 * How to redirect all ansible logs to a file. 
   - Sample :  

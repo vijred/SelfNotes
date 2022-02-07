@@ -22,3 +22,6 @@ MySql basic infomration
     - `SHOW MASTER STATUS \G;`
     - `SHOW SLAVE STATUS \G;`
 
+* Mysql version from shell
+    -   `mysql --version`
+

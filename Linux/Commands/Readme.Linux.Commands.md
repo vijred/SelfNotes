@@ -15,7 +15,8 @@ Server related commands
     - `alias myls="ls -ltr"`
 * Check a process running on the server
     -   `ps -ef | grep serviceinfo`
-
+* Example to give permissions to a given user 
+	-	`setfacl -R -m u:username:rwx /home/usernamexyz/foldername`
 
 Service related commands  
 ------------------------
@@ -41,6 +42,11 @@ sudo rm /etc/systemd/system/mongosqld01k.service
 sudo rm /usr/lib/systemd/system/mongosqld01k.service
 sudo systemctl daemon-reload
 sudo systemctl reset-failed
+```
+
+* How to check logs of the service 
+```
+sudo journalctl -u mongosqld01k.service
 ```
 
 
@@ -78,8 +84,8 @@ File related commands
     - `head -10 mongodb.log`
 * Find all files wiht a given name 
     -   `sudo find / -name *mongo*`
-
-
+* Change owenr of a given folder and all its files
+    -   `sudo chown -R username: foldername/`
 
 
 Size related commands
