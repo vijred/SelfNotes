@@ -10,3 +10,6 @@ Azure Tools
   - export template using portal - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/export-template-portal
   - deploy arm template using Powershell - https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resources-powershell 
   
+* azcopy is one more tool for copy blobs between different storage accotuns of local server
+  - Ref - https://www.thomasmaurer.ch/2019/05/how-to-install-azcopy-for-azure-storage/ 
+

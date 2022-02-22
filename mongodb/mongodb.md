@@ -113,7 +113,9 @@ MongoDB Enterprise dbname:PRIMARY> db.dropDatabase()
 * Export DB (data dump) / Import database 
     -   Sample json to import - Ref: https://media.mongodb.org/zips.json
 ```
- sudo mongodump --db DatabaneName --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username `whoami` --host `hostname`
+# NOTE:
+To Create a new DB from json, import json using mongoimport by providing db name 
+sudo mongodump --db DatabaneName --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username `whoami` --host `hostname`
 mongorestore --db DatabaseName --noIndexRestore --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username `whoami` --host `hostname` /data/db/dump/location/
 
 # Export all DBs
@@ -135,7 +137,7 @@ mongorestore  --port 30000 --authenticationMechanism=PLAIN --authenticationDatab
 mongorestore  --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username <AD username> -p "<AD Password>" --host <host you're importing to> /location/of/dump/file/generated/from/mongodump/
 
 # Import a collection from JSON
-mongoimport --host <host you're exporting from> --authenticationMechanism=PLAIN --authenticationDatabase='$external'  --username <AD username> -p "<AD Password>"  --collection <collection_name> --db <database_name> --file=/data/db/dump/events.jsonExample:
+mongoimport --host `hostname` --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external'  --username `whoami` -p "<AD Password, skip to prompt>"  --collection <collection_name> --db <database_name> --file=/data/db/dump/events.json
 
 # Import a collection
 mongorestore  --port 30000 --authenticationMechanism=PLAIN --authenticationDatabase='$external' --username <AD username> -p "<AD Password>" --host <host you're importing to> /location/of/dump/file/generated/from/mongodump/

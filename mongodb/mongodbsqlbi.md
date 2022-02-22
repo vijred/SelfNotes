@@ -16,3 +16,7 @@ This can be used to access MongoDB DocumentDB as typical SQL commands that cna b
     -   Sample BI Tools - https://docs.mongodb.com/bi-connector/current/client-applications/ 
     -   Can I use any other Drivaer - Yes, MySQL Driver is compatible , it can be connected using MySQL Client as well
 
+* mysql info
+    -   Once you install mysqk client, follow documenation to install auth plugin at https://docs.mongodb.com/bi-connector/current/reference/auth-plugin-c/
+    -   Move file to correct location like /usr/lib64/mysql/plugin/mongosql_auth.so
+    -   connect to mongobi using following command as example `mysql --user='myname?source=$external' --default-auth=mongosql_auth -p --protocol tcp --port 3333`

@@ -7,3 +7,7 @@ Python FAQ
 
 * What is most easy way to start with Python with no installaion or anything 
     -    Colaboratory, or "Colab" for short, allows you to write and execute Python in your browser, with - https://colab.research.google.com/
+
+* Example of dataset joins 
+    -   `https://www.datasciencemadesimple.com/join-merge-data-frames-pandas-python/ `
+

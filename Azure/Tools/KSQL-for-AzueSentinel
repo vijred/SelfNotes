@@ -1,0 +1,209 @@
+KSQL for Azure Sentinal 
+=======================
+
+KSQL isnothing but Kusto Query Langualge used to query logs. If you are familier with splunk, this is similar to splink
+
+Note: While executing KQL, select the statements and execute (Shift Enter)
+
+* Simple course to understand KSQL  
+    -   https://docs.microsoft.com/en-us/learn/modules/construct-kusto-query-language-statements/
+
+* Do you know you can use demo environment to play around and understnad 
+    -   Ref - https://aka.ms/lademo
+
+* How to get all tables and their log counts withing given time
+```
+union withsource = tt * 
+| where TimeGenerated > ago(10d) 
+| summarize count() by tt
+```
+
+* Select top 10 rows from a table (Log) 
+```
+Update | limit 10 
+```
+
+* Example of using variables 
+```
+let timeOffset = 7d;
+let discardEventId = 4688;
+
+SecurityEvent
+| where TimeGenerated > ago(timeOffset*2) and TimeGenerated < ago(timeOffset)
+| where EventID != discardEventId
+```
+
+* Dynamic tables and reuse it as a language 
+```
+let suspiciousAccounts = datatable(account: string) [
+    @"\administrator", 
+    @"NT AUTHORITY\SYSTEM"
+];
+
+SecurityEvent | where Account in (suspiciousAccounts)
+```
+
+* Search multiple tables 
+```
+// Search single table 
+search "error"
+// search given tables
+search in (table1,table2,A*) "error"
+```
+
+* Example of where operations
+```
+SecurityEvent
+| where TimeGenerated > ago(1h)
+| where EventID == 4624
+| where AccountType =~ "user"
+```
+
+* Example of calculated columsn
+```
+SecurityAlert
+| where TimeGenerated > ago(7d)
+| extend severityOrder = case (
+    AlertSeverity == "High", 3,
+    AlertSeverity == "Medium", 2, 
+    AlertSeverity == "Low", 1,
+    AlertSeverity == "Informational", 0,
+    -1)
+```
+
+* Example of Regular expression , order 
+```
+let timeframe = 1d;
+
+let DomainList = dynamic(["tor2web.org", "tor2web.com"]);
+
+Syslog
+| where TimeGenerated >= ago(timeframe)
+| where ProcessName contains "squid"
+| extend 
+HTTP_Status_Code = extract("(TCP_(([A-Z]+)…-9]{3}))",8,SyslogMessage),    
+Domain = extract("(([A-Z]+ [a-z]{4…Z]+ )([^ :\\/]*))",3,SyslogMessage)
+| where HTTP_Status_Code == "200"
+| where Domain contains "."
+| where Domain has_any (DomainList)
+| order by Domain
+```
+
+* Example of Project for output selection (project-away) to exclude a column from output
+```
+SecurityEvent
+| project Computer, Account
+```
+
+* Summarize counts by operator
+    -   other functions to use - countif(), dcount(), max(), avg(), percentile, stddev(), variance(), etc
+```
+AzureActivity
+// | where  Caller == "azr_dbe_auto_usr@paychex.com"
+| summarize count() by OperationName
+```
+
+
+* Make_list() for dynamic JSON array of list values 
+```
+SecurityEvent
+| where EventID == "4624"
+| summarize make_list(Account) by Computer
+```
+
+* Visualization options - barchart, areachart, timechart etc
+```
+SecurityEvent 
+| summarize count() by Account
+| render barchart
+```
+
+* Regults from multiple tables can be done using union operator
+```
+SecurityEvent 
+| union SecurityAlert  
+| summarize count() 
+| project count_
+
+// option-2
+union Security* 
+| summarize count() by Type
+```
+
+* Join operator to fetch results from multiple tables 
+```
+SecurityEvent 
+| where EventID == "4624" 
+| summarize LogOnCount=count() by EventID, Account 
+| project LogOnCount, Account 
+| join kind = inner (
+    SecurityEvent 
+    | where EventID == "4634" 
+    | summarize LogOffCount=count() by EventID, Account 
+    | project LogOffCount, Account 
+) on Account
+```
+
+* String operations , extract and regular expressions 
+    -   Ref - https://docs.microsoft.com/en-us/learn/modules/work-with-data-kusto-query-language/2-extract-data-from-unstructured-string-fields 
+```
+// Verify true of false 
+print extract("x=([0-9.]+)", 1, "hello x=45.6|wo") == "45.6"
+```
+
+* More examples
+```
+// Analyze failures
+AzureActivity
+| where EventSubmissionTimestamp  >= ago(7d)
+| where OperationName == "Microsoft.Authorization/policies/auditIfNotExists/action"
+| where ActivityStatus == "Failed"
+| extend DiagnosticsResults = iff(ActivityStatus == "Succeeded" and ActivityStatusValue == "Succeeded" and Caller == "99065480-e30b-4b92-a9bf-951c99e6eefa" and ResourceProvider == "Microsoft Resources" and ResourceProviderValue == "Microsoft.Resources", 'with pattern', 'without pattern' )
+| summarize count() by DiagnosticsResults,  bin(EventSubmissionTimestamp, 10m)
+| render timechart
+
+// Usage analysis based on date/time and datatype 
+Usage
+| where TimeGenerated > startofday(ago(31d))
+| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), DataType
+| render barchart
+
+
+Usage
+| where TimeGenerated > startofday(ago(365d))
+| where IsBillable == true
+| summarize IngestedGB = sum(Quantity) / 1024 by Solution
+| sort by IngestedGB desc
+| render barchart
+
+// Azure diagnostics, counts by resource 
+AzureDiagnostics
+| where Category == "SQLInsights"
+| summarize dcount(NodeName_s) by Resource, ElasticPoolName_s
+| where dcount_NodeName_s >= 2
+
+
+// Elastic pool metrics 
+AzureMetrics
+| where ResourceProvider=="MICROSOFT.SQL"
+| where MetricName=='cpu_percent' and ResourceId == '/SUBSCRIPTIONS/38752D6C-657A-4529-842A-4CB576EE425D/RESOURCEGROUPS/STRATUSTIME-PROD-RESOURCE/PROVIDERS/MICROSOFT.SQL/SERVERS/STMDBPRC052/ELASTICPOOLS/S052-P014'
+| summarize avg = min_of(avg(Maximum), 100.0), max = min_of(max(Maximum), 100.0), recordcount = count() by bin(TimeGenerated, 10m)
+| render timechart
+
+// what is the filter for billing
+| where _IsBillable == true 
+
+// Metrics
+AzureMetrics
+| where TimeGenerated > ago(9h) 
+
+// Activity 
+AzureActivity
+| where OperationName in ("Update SQL database", "Failover replication relationship after synchronizing", "Delete SQL database")
+| limit 10 
+
+
+
+
+```

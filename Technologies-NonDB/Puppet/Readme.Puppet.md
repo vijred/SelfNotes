@@ -92,3 +92,58 @@ sudo systemctl start puppet
         mode   => '0644',
         source => 'puppet:///modules/mymodule/sample_alias.sh',
         }
+
+
+* Few useful commands to know the commands 
+    ```
+        puppet help
+        puppet help resource | more 
+        puppet resource --types | wc -l
+        puppet describe user | more
+        puppet describe --providers
+    ```
+
+* puppet valite
+    -   `puppet parser validate demo.pp`
+
+* Puppet dry run 
+    -   `puppet apply demo.pp --noop`
+
+* How to run puppet code
+    -   `sudo puppet apply demo.pp `
+
+* Sample pp to create a user
+    ```
+    user { "vjtestuser1":
+            ensure => "present",
+            uid => "7777",
+            shell => "/bin/sh",
+            group => "vjtestuser1"
+    }
+    ```
+
+*   Puppet Classes 
+    -   Puppet classes to use reusable and organized structure 
+    -   Sample code
+    ```
+    class vjdemoclass1{
+        file { "/home/vj/file1.txt":
+            ensure => "present",
+            content => "Test file from pupper",
+        }
+    }
+    include vjdemoclass1
+    ```
+ 
+*   Puppet manifests 
+    -   find the config using `puppet config print`
+    -   Default main manifest location `/etc/puppetlabs/code/environments/production/manifests/`
+
+* Additional Topics of interest to learn
+    -   Variables - Ex: `class "Class Name"{ $varName = <value> }`
+    -   Facts (Built in variables)  -   `facter` is key value pair
+    -   classe
+    -   Modules - collection of resources and classes are moduels / manifests. This is well defined folder structure 
+    -   Roles and Profiles  -   
+    -   HIERA is puppet key value configuration file 
+    -   Puppet Forge (Community) 

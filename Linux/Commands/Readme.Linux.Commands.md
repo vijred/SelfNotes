@@ -69,6 +69,9 @@ fi
 * what is default profile file 
     -   `~/.bash_profile`
 
+* How to set default profile to bash 
+    - Create a file .profile, add `/usr/bin/bash`
+
 File related commands
 ---------------------
 * List file permissions in Number format
@@ -109,4 +112,24 @@ Network related commands
 How to update server name (At least a VM Name)
 --------------
     -   This needs to be updated in 2 files /etc/hosts and /etc/hostname, quick ref - `sudo vi /etc/hostname` `sudo vi /etc/hosts`
+    -   Option-2: `hostnamectl set-hostname mynewhostname.abcabc.org`
+
+* How to create openssl certificate 
+```
+openssl req -nodes -newkey rsa:2048 -keyout test.key -out test.crt -x509 -days 365 -subj "/C=US/ST=NY/L=NY/O=TEST IT/OU=DEVOPS/CN=TEST"
+cat test.crt test.key > test.pem
+chown username test.pem
+```
+
+* How to unpackage .tgz file 
+    -   `tar zxvf fileName.tgz`
+
+* How to delete a user
+    -   `deluser username`
+
+* How to check installed package
+    ```
+    rpm -qa | grep mysql
+    rpm -qi mysql-community-client-plugins-8.0.27-1.el7.x86_64
+    ```
 
