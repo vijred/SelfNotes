@@ -49,6 +49,21 @@ sudo systemctl reset-failed
 sudo journalctl -u mongosqld01k.service
 ```
 
+* How to check service status with details 
+    -   `service servicename status`
+    -   Example: 
+```
+[vk@vkz k5]$ service mongosql_k5 status
+Redirecting to /bin/systemctl status mongosql_k5.service
+● mongosql_k5.service - MongoSQL BI connection for k5
+   Loaded: loaded (/etc/systemd/system/mongosql_k5.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2029-03-23 10:17:51 IST; 40 days ago
+ Main PID: 12943 (mongosqld)
+   CGroup: /system.slice/mongosql_k5.service
+           └─18943 /usr/bin/mongosqld --config=/mnt/testmyshare/services/k5/config_k5.yml --configExpand exec
+[vk@vkz k5]$
+```
+
 
 Shell related commands
 ----------------------
@@ -99,6 +114,8 @@ Size related commands
 ```
 # Disk free space in human readable format 
 df -h 
+
+df -Ph
 ```
 
 powershell
@@ -114,6 +131,24 @@ How to update server name (At least a VM Name)
     -   This needs to be updated in 2 files /etc/hosts and /etc/hostname, quick ref - `sudo vi /etc/hostname` `sudo vi /etc/hosts`
     -   Option-2: `hostnamectl set-hostname mynewhostname.abcabc.org`
 
+
+package related
+---------------
+* How to check installed package
+    ```
+    rpm -qa | grep mysql
+    rpm -qi mysql-community-client-plugins-8.0.27-1.el7.x86_64
+    ```
+* Find location of executable 
+    -   Example `which  mongosqld`
+
+* Find dependent libraries 
+    -   `ldd` command can be used for that. Example `ldd /usr/bin/mongosqld`
+
+
+Other commands 
+--------------
+
 * How to create openssl certificate 
 ```
 openssl req -nodes -newkey rsa:2048 -keyout test.key -out test.crt -x509 -days 365 -subj "/C=US/ST=NY/L=NY/O=TEST IT/OU=DEVOPS/CN=TEST"
@@ -126,10 +161,4 @@ chown username test.pem
 
 * How to delete a user
     -   `deluser username`
-
-* How to check installed package
-    ```
-    rpm -qa | grep mysql
-    rpm -qi mysql-community-client-plugins-8.0.27-1.el7.x86_64
-    ```
 

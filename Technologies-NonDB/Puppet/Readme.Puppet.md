@@ -146,4 +146,4 @@ sudo systemctl start puppet
     -   Modules - collection of resources and classes are moduels / manifests. This is well defined folder structure 
     -   Roles and Profiles  -   
     -   HIERA is puppet key value configuration file 
-    -   Puppet Forge (Community) 
+    -   Puppet Forge (Community) `https://forge.puppet.com`

@@ -170,6 +170,9 @@ mongorestore  --port 30000 --authenticationMechanism=PLAIN --authenticationDatab
 ```
     db.PAYROLL_COMPLETE.find({ _id: "1030013468942751"} )
 	db.PAYROLL_COMPLETE.find()
+
+    -- Find a document with a given column not null
+    db.mytablename.find({"columnname":{$exists:true}}).limit(1).pretty()
 ```
 * Number of documents in a given collection
 ```
