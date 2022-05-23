@@ -1,6 +1,17 @@
 Github
 ======
 
+* First time cloning, SSL certificate problem on Windows server, try this!
+```
+PS C:\github> git clone https://github.com/vijred/SelfNotes.git
+Cloning into 'SelfNotes'...
+fatal: unable to access 'https://github.com/vijred/SelfNotes.git/': SSL certificate problem: unable to get local issuer certificate
+PS C:\github> git config --global http.sslbackend schannel
+PS C:\github> git clone https://github.com/vijred/SelfNotes.git
+Cloning into 'SelfNotes'...
+remote: Enumerating objects: 439, done.
+```
+
 
 * Most frequent used commands to add changes to server
 ```
@@ -74,6 +85,7 @@ git config --global credential.helper store
 ```
 git log --graph --decorate --pretty=oneline --abbrev-commit --all
 git log --all --graph --pretty=format:'%C(yellow)%h%Creset%C(blue)%d%Creset %C(white bold)%s%Creset %C(white dim)(%an on %ai [%ar])%Creset'
+git log --oneline --graph --decorate --color
 ```
 * Save the state of your current branch in another branch, named mybackup
 ```
