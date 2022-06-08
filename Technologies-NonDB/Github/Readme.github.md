@@ -182,9 +182,40 @@ Config
 	-	git remote add origin https://github.com/vijred/myrepo.git
 	
 
+SSH authentication to Github
+```
+SSH Authentication Commands
+SSH Authentication Commands
+ 
+
+Lecture Command Listing
+cd ~
+cd .ssh
+mkdir .ssh
+cd .ssh
+pwd
+ssh-keygen -t rsa -C "jason@jasongtaylor.com"
+mate id_rsa.pub
+ssh -T git@github.com
+ 
+
+Command Reference
+Generating an SSH Key
+
+ssh-keygen -t rsa -C "your.name@your-company.com"
+Use your actual email address in the example above.
+
+Verify SSH authentication
+
+ssh -T git@github.com
+Above command uses ssh to connect to GitHub over the SSH protocol.
+```
+
+
 Tips:
 -----
 * How to correct the mistakes while pushing the data -> https://about.gitlab.com/blog/2018/08/08/git-happens/ 
 * Basic commands -> https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html 
 * How to remove sensitive data from one of the files in github -> https://rtyley.github.io/bfg-repo-cleaner/ 
 * Troubleshoot gitbug certificate issues - https://stackoverflow.com/questions/23885449/unable-to-resolve-unable-to-get-local-issuer-certificate-using-git-on-windows
+* recommended e-book: http://git-scm.com/book/en/v2 
