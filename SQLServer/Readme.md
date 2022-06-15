@@ -1,6 +1,8 @@
 SQL Server Info
 ===============
 
+Use this repo dedicated for SQL Server code - https://github.com/vijred/MSSQL 
+
 
 * [Data Types and its conversion options](https://docs.microsoft.com/en-us/sql/t-sql/functions/cast-and-convert-transact-sql?view=sql-server-ver15)
 * Always-ON -> How to add databases to AG -> https://github.com/vijred/MSSQL/blob/master/AlwaysOn/Add_Database2AG.sql 
