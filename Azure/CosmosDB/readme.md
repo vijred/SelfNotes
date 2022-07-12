@@ -74,3 +74,7 @@ How to - CosmosDB
     -   https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac#role-definitions
 * Cosmosdb Roles and permissions 
     -   https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb 
+* List all CosmosDBs in all subscriptions you own and their capacity configuration
+    -   https://github.com/vijred/SelfNotes/blob/master/Azure/CosmosDB/ListAllCosmosDBsnConfiguration.ps1 
+ 
+ 
