@@ -30,3 +30,5 @@ Azure Storage
     ```    
     -   Ohter option is to use azcopy tool (https://github.com/Azure/azure-storage-azcopy/)
         -   Known issue to copy with firewalls : https://github.com/Azure/azure-storage-azcopy/issues/1673 
+
+* How to find soft delete content usage - https://techcommunity.microsoft.com/t5/azure-paas-blog/azure-storage-blob-count-amp-capacity-usage-calculator/ba-p/3516855 
