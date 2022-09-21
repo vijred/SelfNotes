@@ -7,6 +7,13 @@ Databricks
   * Create a Cluster 
   * Create a Notebook in workspace 
   * choose comfortable language (Python , SQL, Scala, R, Markdown) and start working on it
+* Databricks UI - what to explore
+  * Workspaces
+  * Repos
+  * Data
+  * Compute 
+  * Workflows 
+  * Clusters 
 
 ## scala example 
 * Example to display table results 
@@ -34,7 +41,13 @@ display(table("target").orderBy("key"))
 ```
 SELECT * FROM hive_metastore.default.quotes_csv
 insert into hive_metastore.default.quotes_csv values(53,2,2,2,'no');
+
+CREATE OR REPLACE VIEW  IF NOT EXISTS databasename.viewname
+    AS 
+SELECT mycol from table
 ```
+* List of spark SQL functions - https://spark.apache.org/docs/latest/api/sql/
+
 
 ## Databricks Datalakehouse 
 Catalog: a grouping of databases.
@@ -47,4 +60,9 @@ Function: saved logic that returns a scalar value or set of rows.
 ## Delta live table 
 https://learn.microsoft.com/en-us/azure/databricks/workflows/delta-live-tables/ 
 
-
+## Python
+* Simplest way to query SQL tables in Python
+```
+df=spark.sql(f"""SELECT * FROM mydb.mytable""")
+df.select("col1","col2").collect()
+```
