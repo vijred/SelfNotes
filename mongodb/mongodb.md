@@ -1,7 +1,6 @@
 MongoDB info
 ============
 
-
 * Connect arbitor
     - `mongo --host Servername.msft.com --port 30001` 
 * Connect to a mongodb Server

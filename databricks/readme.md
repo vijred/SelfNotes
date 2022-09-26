@@ -66,3 +66,4 @@ https://learn.microsoft.com/en-us/azure/databricks/workflows/delta-live-tables/
 df=spark.sql(f"""SELECT * FROM mydb.mytable""")
 df.select("col1","col2").collect()
 ```
+* How to run a file system commands - use `%fs` - Example: `%fs /tmp`
