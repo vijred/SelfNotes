@@ -34,3 +34,53 @@ inner_join_df= pd.merge(df1, df2, on='Customer_id', how='outer')
 
 inner_join_df.sample()
 ```
+
+Dataframe sample from Databricks 
+```
+# Pick small set of rows from existing data frame for analysis 
+dfe = df_explination.head(4)
+display(dfe)
+
+data = [[1001457489, "Elia"], [1576674295, "Teo"], [1387463875, "Fang"]]
+
+pdf = pd.DataFrame(data, columns=["w_id", "name"])
+
+df1 = spark.createDataFrame(pdf)
+df2 = spark.createDataFrame(data, schema="wr_id LONG, name STRING")
+
+display(df1)
+display(df2)
+
+df3 = spark.createDataFrame(dfe)
+
+display(df3)
+
+unioned_df = df1.union(df2)
+display(unioned_df)
+
+joined_df = df1.join(df3, how="inner", on="w_id")
+display(joined_df)
+
+joined_df_filter = joined_df.where("Name <> 'Teo'")
+display(joined_df_filter)
+
+joined_df_filter_col = joined_df_filter.select("w_id","name","gcc_id","variable","value")
+display(joined_df_filter_col)
+
+joined_df_filter_col.printSchema()
+
+
+## Write dataframe as a table 
+# df.write.saveAsTable("<table_name>")
+
+##Write dataframe as collection of files 
+# df.write.format("json").save("/tmp/json_data")
+
+
+display(joined_df_filter_col.selectExpr("w_id", "upper(name) as big_name", "lower(name) as small_name"))
+
+# # Select data from a table
+# table_name = "my_table"
+# query_df = spark.sql(f"SELECT * FROM {table_name}")
+
+```
