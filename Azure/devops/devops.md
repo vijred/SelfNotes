@@ -28,3 +28,6 @@ Release pipelines
     -   https://docs.microsoft.com/en-us/azure/devops/pipelines/scripts/logging-commands?view=azure-devops&tabs=powershell
     -   Ex: `Write-Host "##vso[task.setvariable variable=mykeyvar]$mykey"`
 
+* How to access Devops using REST API (Example use postman)
+    - https://www.sanderh.dev/call-Azure-DevOps-REST-API-Postman/
+
