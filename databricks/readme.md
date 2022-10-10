@@ -67,3 +67,19 @@ df=spark.sql(f"""SELECT * FROM mydb.mytable""")
 df.select("col1","col2").collect()
 ```
 * How to run a file system commands - use `%fs` - Example: `%fs /tmp`
+* how to set environmental variables and use it in SQL 
+```
+%python
+myvar1 = "-4.0"
+myvar2 = "0.1"
+
+spark.conf.set("var.var1", myvar1)
+spark.conf.set("var.var2", myvar2)
+```
+```
+%sql
+
+SELECT lat.col1, * 
+from table where 
+col3 between ${var.clientcountchangepercentlow} AND ${var.clientcountchangepercenthigh}
+```
