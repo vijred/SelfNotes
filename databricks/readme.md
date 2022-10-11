@@ -83,3 +83,13 @@ SELECT lat.col1, *
 from table where 
 col3 between ${var.clientcountchangepercentlow} AND ${var.clientcountchangepercenthigh}
 ```
+* How to use Cluster Tags in notebook
+```
+import json
+all_tags = {}
+for tag in json.loads(spark.conf.get("spark.databricks.clusterUsageTags.clusterAllTags")):
+  all_tags[tag['key']] = tag['value']
+
+notebookenv = all_tags.get('my_environment')
+print(notebookenv)
+```
