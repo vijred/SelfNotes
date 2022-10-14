@@ -93,3 +93,19 @@ for tag in json.loads(spark.conf.get("spark.databricks.clusterUsageTags.clusterA
 notebookenv = all_tags.get('my_environment')
 print(notebookenv)
 ```
+* How to pass and access variables 
+```
+# Pass variables (argument, and argument2 with values data and data2
+dbutils.notebook.run("notebookname2", 60, {"argument": "data", "argument2": "data2"})
+
+
+#read variables
+print('this is notebook 2')
+try:
+  val = print(dbutils.widgets.get("argument"))
+except:
+  val = 'parameter not passed'
+
+# return a value
+dbutils.notebook.exit([0,'val'])
+```
