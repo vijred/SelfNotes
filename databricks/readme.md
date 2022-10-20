@@ -109,3 +109,21 @@ except:
 # return a value
 dbutils.notebook.exit([0,'val'])
 ```
+
+* How to use Basic widgets 
+```
+# View widget UI on notebook - 
+dbutils.widgets.text("myargument","initial variable value - this can be edited or passed","Variable Text to display")
+dbutils.widgets.get("myargument")
+curatedData=getArgument("myargument")
+
+curatedData = curatedData + ' looks good'
+print(curatedData)
+
+
+# Remove the widget
+dbutils.widgets.removeAll()
+
+# Sample code to call the notebook by passing the argument
+dbutils.notebook.run("vj_test_notebook1", 60, {"myargument": "Value_Passed", "argument2": "data2"})
+```
