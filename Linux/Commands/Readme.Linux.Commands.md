@@ -162,3 +162,6 @@ chown username test.pem
 * How to delete a user
     -   `deluser username`
 
+* How to unzip 
+    - `/usr/bin/gunzip xyz_filename_0.0.6.tar.gz`
+    - `tar -xf xyz_filename_0.0.6.tar`
