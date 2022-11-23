@@ -71,6 +71,8 @@ git config --system --unset credential.helper
 # How to configure credentials to store
 git config --global credential.helper store
 
+# How to provide password during password reset. Just add -u option during push, it will read new credentials
+git push -u origin branch_name_that_you_want_to_push
 ```
 * Check status of changes
     - `Git status`
