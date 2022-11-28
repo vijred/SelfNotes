@@ -43,15 +43,24 @@ with(Dataset, Hist(APR, scale="frequency", breaks="Sturges", col="darkgray"))
 ```
 * Bar graph
 * (Plot Discrete Numaric variable) 
-* Normal Quantile Plot - 
+* Normal Quantile Plot - This can be used to check if the data is normally distributed.
 ```
 # Graphs -> Normal Quantile Plot
-with(Dataset, Hist(APR, scale="frequency", breaks="Sturges", col="darkgray"))
+with(Dataset, qqPlot(APR, dist="norm", id=list(method="y", n=2, labels=rownames(Dataset))))
 ```
+![Normal Quantil Plot](Images/normalquantileplot.png?raw=true "Normal Quantil Plot")
+* Scatterplot matrix
+  * Graphs -> Scatterplot matrix 
+![Normal Quantil Plot](Images/scatterplot.png?raw=true "Normal Quantil Plot")
 
 
 ### Statistics
 * Frequency Distribution
 * Numerical Summaries 
   * skewed (Positively, negatively skewed)
-  
+* Corelation 
+  * Statistics -> Summaries -> Correlation matrix
+  * `cor(Dataset[,c("APR","FICO","HomeValue","Income","LTV")], use="complete")`
+  * `cor(Dataset)`
+* Covariance
+  * `cov(Dataset)`
