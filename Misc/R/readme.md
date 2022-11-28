@@ -74,4 +74,7 @@ with(Dataset, qqPlot(APR, dist="norm", id=list(method="y", n=2, labels=rownames(
 # Sample to create Linear regression model
 lrModel <- lm(APR~LTV+FICO+Income+HomeValue, data=Dataset)
 summary(lrModel)
+coef(lrModel)
+anova(lrModel)
+residuals(lrModel)
 ```
