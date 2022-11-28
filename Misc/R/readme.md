@@ -36,9 +36,18 @@ R Language -
 ### Graphs
 
 * Histogram
+```
+# Graphs -> Histogram 
+# Sample 
+with(Dataset, Hist(APR, scale="frequency", breaks="Sturges", col="darkgray"))
+```
 * Bar graph
 * (Plot Discrete Numaric variable) 
-
+* Normal Quantile Plot - 
+```
+# Graphs -> Normal Quantile Plot
+with(Dataset, Hist(APR, scale="frequency", breaks="Sturges", col="darkgray"))
+```
 
 
 ### Statistics
