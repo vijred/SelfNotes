@@ -51,7 +51,10 @@ with(Dataset, qqPlot(APR, dist="norm", id=list(method="y", n=2, labels=rownames(
 ![Normal Quantil Plot](Images/normalquantileplot.png?raw=true "Normal Quantil Plot")
 * Scatterplot matrix
   * Graphs -> Scatterplot matrix 
-![Normal Quantil Plot](Images/scatterplot.png?raw=true "Normal Quantil Plot")
+ ```
+ scatterplotMatrix(~APR+FICO+HomeValue+Income+LTV, regLine=FALSE, smooth=FALSE, diagonal=list(method="density"), data=Dataset)
+ ```
+![Scatter plot matrix](Images/scatterplotmatrix.png?raw=true "Scatter plot matrix")
 
 
 ### Statistics
