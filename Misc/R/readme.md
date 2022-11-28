@@ -78,3 +78,29 @@ coef(lrModel)
 anova(lrModel)
 residuals(lrModel)
 ```
+
+Sample response and usage of regression model 
+```
+lm(formula = APR ~ LTV + FICO + Income + HomeValue, data = Dataset)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.1392 -0.8797 -0.2024  0.6258  7.1070 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 23.7253652  0.6859028  34.590   <2e-16 ***
+LTV         -1.5888430  0.5197123  -3.057   0.0024 ** 
+FICO        -0.0184318  0.0013502 -13.652   <2e-16 ***
+Income       0.0004032  0.0033266   0.121   0.9036    
+HomeValue   -0.0007521  0.0008186  -0.919   0.3589    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.244 on 367 degrees of freedom
+Multiple R-squared:  0.4631,	Adjusted R-squared:  0.4573 
+F-statistic: 79.14 on 4 and 367 DF,  p-value: < 2.2e-16
+```
+* Intercept = 23.7253652:
+* R-squared: Percent of variation explained by the model. This is between 0,1 and higher the better for the model 
+* Residual standard error/RMSE/ Standard Error of the regression: Units is same as Respones variable (In our case APR).  This is also called RMSE (Root Mean Squared Error). This is on average how much error exists in response.
