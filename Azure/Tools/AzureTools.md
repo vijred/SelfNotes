@@ -3,6 +3,8 @@ Azure Tools
 
 * Storage explorer
   - workaround to address certificate error - `& 'C:\Program Files (x86)\Microsoft Azure Storage Explorer\StorageExplorer.exe' --ignore-certificate-errors`
+  - `"C:\Users\vkundana\AppData\Local\Programs\Microsoft Azure Storage Explorer\StorageExplorer.exe" --ignore-certificate-errors`
+
 
 * arm templates for deploying a resource 
   - Rood reference to fiurst time users - https://www.youtube.com/watch?v=MZTb9NtZOh4 
