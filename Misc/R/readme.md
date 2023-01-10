@@ -56,6 +56,7 @@ with(Dataset, qqPlot(APR, dist="norm", id=list(method="y", n=2, labels=rownames(
  ```
 ![Scatter plot matrix](Images/scatterplotmatrix.png?raw=true "Scatter plot matrix")
 
+* produsing simple graphs -> https://sites.harding.edu/fmccown/r/
 
 ### Statistics
 * Frequency Distribution
