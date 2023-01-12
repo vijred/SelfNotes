@@ -11,7 +11,8 @@ Azure CLI
     - `az account list --output table`
 * Select a subscription
     - `az account set --subscription "My Demos"`
-
+* How to install Azure CLI
+    - `winget install -e --id Microsoft.AzureCLI`
 
 FAQ
 ====
