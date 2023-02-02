@@ -212,6 +212,23 @@ Verify SSH authentication
 ssh -T git@github.com
 Above command uses ssh to connect to GitHub over the SSH protocol.
 ```
+* How to handle merge conflicts while merging myfeature to develop branch  (Suggestion from Github)
+
+**Merge conflict**:
+
+This pull request has conflicts.
+
+You must resolve the conflicts by manually merging develop into this branch. After the conflicts are resolved you will be able to merge the pull request.
+
+**Step 1**: Checkout the source branch and merge in the changes from the target branch. Resolve conflicts.
+`git checkout myfeature`
+`git pull origin develop`
+
+**Step 2**: After the merge conflicts are resolved, stage the changes accordingly, commit the changes and push.
+`git commit`
+`git push origin HEAD`
+
+**Step 3**: Merge the updated pull request.
 
 
 Tips:
