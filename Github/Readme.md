@@ -1,6 +1,9 @@
 Github
 ======
 
+* NOTE: Consider using a IDE (Integrated Developmetn Environment), VSCode is a great choice. I have Adopted VSCode as prefered tool for BitBucket work starting late 2022.
+
+
 * First time cloning, SSL certificate problem on Windows server, try this!
 ```
 PS C:\github> git clone https://github.com/vijred/SelfNotes.git
