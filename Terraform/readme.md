@@ -58,4 +58,9 @@ What is tained in Terraform
 * When a resource is not created completed as planned, it is listed as tained resource. manually this resource can be corrected in statefile to using tain and untain commands.
   - Ref: https://www.devopsschool.com/blog/terraform-taint-and-untaint-explained-with-example-programs-and-tutorials/ 
 
+
+Useful references for good understanding
+----------------------
+* Using complex variables:   https://blog.wimwauters.com/devops/2022-03-01_terraformusecases/ 
+* Using Loops: https://blog.gruntwork.io/terraform-tips-tricks-loops-if-statements-and-gotchas-f739bbae55f9
   
