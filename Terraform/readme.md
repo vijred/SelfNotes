@@ -64,3 +64,12 @@ Useful references for good understanding
 * Using complex variables:   https://blog.wimwauters.com/devops/2022-03-01_terraformusecases/ 
 * Using Loops: https://blog.gruntwork.io/terraform-tips-tricks-loops-if-statements-and-gotchas-f739bbae55f9
   
+Terraform Misc 
+-------------
+* How to handle a Locked state file 
+  * `terraform force-unlock [options] LOCK_ID` command can be used to unlock
+  * Useful reference: https://buildvirtual.net/terraform-error-locking-state/#:~:text=This%20is%20done%20using%20the,really%20want%20to%20force%2Dunlock%3F
+  * What if the file is in Azure, you use it only using Automated Pipelines 
+    * One of the option is to open the file in portal and use `Break Lease` option.
+      * ..
+    * This can also be done using Cmdlets (Ref: https://www.kondaurov.me/2022/unlock-terraform-state-on-azure-storage/) 
