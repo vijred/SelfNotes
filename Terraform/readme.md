@@ -71,5 +71,5 @@ Terraform Misc
   * Useful reference: https://buildvirtual.net/terraform-error-locking-state/#:~:text=This%20is%20done%20using%20the,really%20want%20to%20force%2Dunlock%3F
   * What if the file is in Azure, you use it only using Automated Pipelines 
     * One of the option is to open the file in portal and use `Break Lease` option.
-      * ..
+      * ![AzureBreakLeaseSample](https://user-images.githubusercontent.com/7520740/218124213-0801eda9-3d62-4317-b57b-a0b269db39c3.png)
     * This can also be done using Cmdlets (Ref: https://www.kondaurov.me/2022/unlock-terraform-state-on-azure-storage/) 
