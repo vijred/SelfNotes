@@ -32,3 +32,13 @@ Azure Storage
         -   Known issue to copy with firewalls : https://github.com/Azure/azure-storage-azcopy/issues/1673 
 
 * How to find soft delete content usage - https://techcommunity.microsoft.com/t5/azure-paas-blog/azure-storage-blob-count-amp-capacity-usage-calculator/ba-p/3516855 
+
+* Sample to map Cloud storage as a network drive on a windows machine
+  * Ref: https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows 
+```
+$str = $MyCredentialsxyz.GetNetworkCredential().Password
+$acctKey = ConvertTo-SecureString -String $str -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\stratustimeprodautomate", $acctKey
+
+New-PSDrive -Name Z -PSProvider FileSystem -Root "\\myStorageAccountName.file.core.windows.net\containername" -Credential $credential -Persist
+```
