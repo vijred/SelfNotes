@@ -127,3 +127,5 @@ dbutils.widgets.removeAll()
 # Sample code to call the notebook by passing the argument
 dbutils.notebook.run("vj_test_notebook1", 60, {"myargument": "Value_Passed", "argument2": "data2"})
 ```
+
+* Databricks resources can be managed and viewed using CLI, CLI needs to be installed for the same. Ref: https://docs.databricks.com/dev-tools/cli/index.html 
