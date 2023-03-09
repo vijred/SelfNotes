@@ -1,3 +1,5 @@
+NOTE: exploreparquetfile.py can be referenced to read data from parquet file or create a parquet file 
+
 
 Python FAQ
 ----------
