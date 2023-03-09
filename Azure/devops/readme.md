@@ -31,3 +31,6 @@ Release pipelines
 * How to access Devops using REST API (Example use postman)
     - https://www.sanderh.dev/call-Azure-DevOps-REST-API-Postman/
 
+
+* DevOps AgentPools and Self-Hosted Windows agents can be used to offload the work to specific machine. Ref: https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows
+
