@@ -13,7 +13,7 @@ Python FAQ
     -   `https://www.datasciencemadesimple.com/join-merge-data-frames-pandas-python/ `
 
 * Example of using join on Data Frames 
-* ```
+```
 %python
 import pandas as pd
 import numpy as np
@@ -84,3 +84,9 @@ display(joined_df_filter_col.selectExpr("w_id", "upper(name) as big_name", "lowe
 # query_df = spark.sql(f"SELECT * FROM {table_name}")
 
 ```
+
+* Documentation
+ * The Python Tutorial : https://docs.python.org/3.11/tutorial/index.html
+ * Python Documentation: https://docs.python.org/3.11/index.html
+ * Using Python on Windows: https://docs.python.org/3.11/using/windows.html
+
