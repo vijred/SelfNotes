@@ -85,6 +85,13 @@ display(joined_df_filter_col.selectExpr("w_id", "upper(name) as big_name", "lowe
 
 ```
 
+* Python command prompt - `py`
+  *  use `py --list` to view list of python versions installed on the system
+
+* How to ensure working pip on windows server
+  * `py --version, py -m pip --version` commands can be used. Ref: https://pip.pypa.io/en/stable/getting-started/
+  * How to install a package - `py -m pip install sampleproject` ,`py -m pip install azure-storage-file-datalake`
+
 * Documentation
  * The Python Tutorial : https://docs.python.org/3.11/tutorial/index.html
  * Python Documentation: https://docs.python.org/3.11/index.html
