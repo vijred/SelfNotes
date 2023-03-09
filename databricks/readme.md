@@ -129,3 +129,36 @@ dbutils.notebook.run("vj_test_notebook1", 60, {"myargument": "Value_Passed", "ar
 ```
 
 * Databricks resources can be managed and viewed using CLI, CLI needs to be installed for the same. Ref: https://docs.databricks.com/dev-tools/cli/index.html 
+
+
+* Test MSSQL connection from Databricks 
+```
+driverClass = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+jdbcHostname = "mysqlservername-001.database.windows.net"
+#jdbcHostname = "10.10.10.10"
+jdbcDatabase = "myDBName"
+jdbcPort = "1433"
+
+
+#jdbcHostname = databaseserver
+#jdbcDatabase = databasename
+jdbcUsername = "myloginname"
+jdbcPassword = "myPasword"
+driverClass = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    
+    
+jdbcUrlClient = "jdbc:sqlserver://{0}:{1};database={2}".format(jdbcHostname, jdbcPort, jdbcDatabase)
+connectionPropertiesClient = {
+  "user" : jdbcUsername
+  ,"password" : jdbcPassword
+  ,"driver" : driverClass
+}
+
+dataSourceClientCollection = spark.read.format("jdbc") \
+    .option("url", jdbcUrlClient) \
+    .option("user", jdbcUsername) \
+    .option("password", jdbcPassword) \
+    .option("query", f"SELECT * FROM SampleTable") \
+    .load()
+
+```
