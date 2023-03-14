@@ -162,3 +162,9 @@ dataSourceClientCollection = spark.read.format("jdbc") \
     .load()
 
 ```
+
+* How to get clusterName and clisterId in notebook
+```
+spark.conf.get("spark.databricks.clusterUsageTags.clusterName")
+spark.conf.get("spark.databricks.clusterUsageTags.clusterId")
+```
