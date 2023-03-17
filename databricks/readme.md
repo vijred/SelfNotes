@@ -168,3 +168,5 @@ dataSourceClientCollection = spark.read.format("jdbc") \
 spark.conf.get("spark.databricks.clusterUsageTags.clusterName")
 spark.conf.get("spark.databricks.clusterUsageTags.clusterId")
 ```
+
+* Do I have powershell modeule for databricks? - Yes, https://github.com/gbrueckl/Databricks.API.PowerShell/blob/master/README.md 
