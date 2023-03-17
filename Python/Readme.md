@@ -99,4 +99,5 @@ display(joined_df_filter_col.selectExpr("w_id", "upper(name) as big_name", "lowe
  * The Python Tutorial : https://docs.python.org/3.11/tutorial/index.html
  * Python Documentation: https://docs.python.org/3.11/index.html
  * Using Python on Windows: https://docs.python.org/3.11/using/windows.html
+ * Azureml python cheatsheet: https://azure.github.io/azureml-cheatsheets/ 
 
