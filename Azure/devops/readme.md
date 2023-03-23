@@ -33,4 +33,5 @@ Release pipelines
 
 
 * DevOps AgentPools and Self-Hosted Windows agents can be used to offload the work to specific machine. Ref: https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows
+  * When to use this? If there is any  requirement to run Devops workload from existing server, this is possible option. Quick to install, configure and easy to uninstall aswell! 
 
