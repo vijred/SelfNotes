@@ -9,5 +9,5 @@ How to read .avro files
   * I was analyzing data in Azure eventhubs. Stream analytics was not capturing all data. Endup using `Capture` functionality to store the content in .avro format and I had to read data from .avro files.
 
 * Give me an example how to read the files from .avro
-  * Ref: ...
+  * Ref: [Sample powershell code to read .avro file](https://github.com/vijred/Powershell/tree/master/Modules/AvroTools)
 
