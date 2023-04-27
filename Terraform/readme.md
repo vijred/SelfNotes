@@ -52,7 +52,7 @@ How-to:
 * How to apply a generated plan 
   - terraform apply "myplan" -auto-approve
 
-* How to import configuration into statefile that is alreadt defined in Terraform configuraiton (When a configuration is changed in Azure directly, added the same in Terraform code, -refresh-only addres the resource into statefile)
+* How to import configuration into statefile that is alreadt defined in Terraform configuraiton (When a configuration is changed in Azure directly, added the same in Terraform code, -refresh-only addres the resource into statefile) - (https://developer.hashicorp.com/terraform/tutorials/state/refresh) 
   - terraform apply -refresh-only
 
 What is tained in Terraform
