@@ -147,3 +147,16 @@ sudo systemctl start puppet
     -   Roles and Profiles  -   
     -   HIERA is puppet key value configuration file 
     -   Puppet Forge (Community) `https://forge.puppet.com`
+
+* Archive class 
+    -   
+```
+  archive { 'Some_xyz_name.zip':
+    source       => $http_url,
+    path         => $LocalPath_where_toDownload,
+    extract      => true,
+    extract_path => $FolderPathOfExtractLocation,
+    creates      => $FilderName_Extract_Only_If_this_Path_DoesNotExists,
+    cleanup      => false,
+  }
+```
