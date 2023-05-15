@@ -13,6 +13,7 @@ Azure CLI
     - `az account set --subscription "My Demos"`
 * How to install Azure CLI
     - `winget install -e --id Microsoft.AzureCLI`
+    - `Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'`
 
 FAQ
 ====
