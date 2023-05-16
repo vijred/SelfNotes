@@ -35,3 +35,6 @@ Release pipelines
 * DevOps AgentPools and Self-Hosted Windows agents can be used to offload the work to specific machine. Ref: https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows
   * When to use this? If there is any  requirement to run Devops workload from existing server, this is possible option. Quick to install, configure and easy to uninstall aswell! 
 
+* How to give access between projects - To be precise, how to allow a pipeline to build an Artifact from diferent project Git Repo in the same organization
+  * https://learn.microsoft.com/en-us/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml#configure-external-project
+  * There will be an account (Project_name Build Service). Need to give Read access on the project!
