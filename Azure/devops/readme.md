@@ -21,7 +21,6 @@ Release pipelines
     1. Create an artifact, a Devops repo can be used 
     2. Agent can be configured to run on windows-2010
     3. Task-1: Azure CLI, install Azure CLI 
-        * 
 
 
 * How to log commands or update variables or communicat3e between tasks in Devops Tasks 
