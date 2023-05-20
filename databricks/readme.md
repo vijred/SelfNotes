@@ -170,3 +170,64 @@ spark.conf.get("spark.databricks.clusterUsageTags.clusterId")
 ```
 
 * Do I have powershell modeule for databricks? - Yes, https://github.com/gbrueckl/Databricks.API.PowerShell/blob/master/README.md 
+
+* How to add a new Datalake mount point using Storage Key 
+```
+
+# Check mounts
+dbutils.fs.mounts()
+
+# Declare
+storage_account_name = "myStorageaccountname"
+storage_account_key = "123456789xTP123456789VA0aTrqrpZvEBbOgaO++434343434232323343/434343+354644++KK=="
+
+storage_container_name = "mycontainerName"
+mount_point = "/mnt/{}".format(storage_container_name)
+
+# Unmount if necessary
+# dbutils.fs.unmount(mount_point)
+
+dbutils.fs.mount(
+     source = "wasbs://{0}@{1}.blob.core.windows.net".format(storage_container_name, storage_account_name),
+     mount_point = mount_point,
+     extra_configs = {"fs.azure.account.key.{0}.blob.core.windows.net".format(storage_account_name): storage_account_key}
+    )
+
+# COMMAND ----------
+dbutils.fs.mounts()
+```
+
+* How to access Datalake data using storage key, and spark.read (Ref: https://docs.databricks.com/storage/azure-storage.html#language-Account%C2%A0key)
+```
+spark.conf.set("fs.azure.account.key.myStorageaccountname.dfs.core.windows.net","1234567834dsgdsMYSTORAGEACCOUNTKEY+xMYSTORAGEACCOUNTKEYGoMYSTORAGEACCOUNTKEYSdMYSTORAGEACCOUNTKEY8MYSTORAGEACCOUNTKEYcixAA==")
+
+df = spark.read.load('abfss://myContainerName@MyStorageAccountName.dfs.core.windows.net/folderstructure/year=2016/month=12/day=20161210/data_00*.json', format='json')
+df.explain(True)
+```
+
+
+* How to access Datalake data using SAS key, and spark.read (Ref: https://docs.databricks.com/storage/azure-storage.html#language-Account%C2%A0key)
+```
+spark.conf.set("fs.azure.account.auth.type.vj3datalake.dfs.core.windows.net", "SAS")
+spark.conf.set("fs.azure.sas.token.provider.type.vj3datalake.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.sas.FixedSASTokenProvider")
+spark.conf.set("fs.azure.sas.fixed.token.vj3datalake.dfs.core.windows.net", "sp=rwdle&st=2023-05-19T20:26:22Z&se=2024-05-20T04:26:22Z&spr=https&sv=2022-11-02&sr=c&sig=v%2Bm53tgHWOANRm%2Fomiab2Hux6bS1pDAYVWTUfWxMttY%3D")
+
+df = spark.read.load('abfss://vj3datalakefs3@vj3datalake.dfs.core.windows.net/eventhubn1/2023-03-28/12/0_638156016000000000_1.json', format='json')
+df.explain(True)
+```
+
+
+* Last way is to use Azure Service principal to acccess Azure Datalake 
+```
+service_credential = dbutils.secrets.get(scope="<scope>",key="<service-credential-key>")
+
+spark.conf.set("fs.azure.account.auth.type.<storage-account>.dfs.core.windows.net", "OAuth")
+spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account>.dfs.core.windows.net", "<application-id>")
+spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account>.dfs.core.windows.net", service_credential)
+spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account>.dfs.core.windows.net", "https://login.microsoftonline.com/<directory-id>/oauth2/token")
+```
+
+* How to create a scope in Databricks Workspace? - https://<databricks-instance>#secrets/createScope
+  * Ref: https://learn.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes
+ 
