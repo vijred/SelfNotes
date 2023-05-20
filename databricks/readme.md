@@ -228,6 +228,7 @@ spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account>.dfs.core
 spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account>.dfs.core.windows.net", "https://login.microsoftonline.com/<directory-id>/oauth2/token")
 ```
 
-* How to create a scope in Databricks Workspace? - https://<databricks-instance>#secrets/createScope
+* How to create a scope in Databricks Workspace? - https://databricks-instance-name#secrets/createScope
   * Ref: https://learn.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes
  
+* How to list all secret scopes? dbutils.secrets.listScopes() 
