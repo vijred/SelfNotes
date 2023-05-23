@@ -7,6 +7,7 @@ Azure CLI
 * Find the subscription you are using
     - `az account show`
     - `az account show --output table`
+    - `Connect-AzAccount -Tenant 12345678-abcd-4f97-4444-rrrr55555d83` - Where tenantid can be found from az account command.
 * List all subscriptions
     - `az account list --output table`
 * Select a subscription
