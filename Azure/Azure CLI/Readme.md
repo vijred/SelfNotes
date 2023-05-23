@@ -7,7 +7,9 @@ Azure CLI
 * Find the subscription you are using
     - `az account show`
     - `az account show --output table`
-    - `Connect-AzAccount -Tenant 12345678-abcd-4f97-4444-rrrr55555d83` - Where tenantid can be found from az account command.
+* How to set the context?
+    - AZ way - `Connect-AzAccount -Tenant 12345678-abcd-4f97-4444-rrrr55555d83` - Where tenantid can be found from az account command.
+    - If you are using Powershell Cmdlets, you need to use different command. `Get-AzSubscription -SubscriptionId "sadfdsaf-ads-asdf-44-casdfdsf33fe39" -TenantId "fsdf-sfd-dsfdf-34543-fewr4ewr3ggrf" | Set-AzContext`
 * List all subscriptions
     - `az account list --output table`
 * Select a subscription
