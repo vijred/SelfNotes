@@ -232,3 +232,17 @@ spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account>.dfs.co
   * Ref: https://learn.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes
  
 * How to list all secret scopes? dbutils.secrets.listScopes() 
+
+* Tell me about Databricks CLI
+  * Databricks Command-Line Interface is easy to use from Terminal  command prompt.
+  * Databricks CLI needs to be installed on system and configured for given workspace
+  * cli installation and configuration instructions can be found @ https://learn.microsoft.com/en-us/azure/databricks/dev-tools/cli/
+  * How to view commands (help) - `databricks configure --help` or `databricks --help`
+  * Default location of configuration file in windows - `%USERPROFILE%\.databrickscfg` (`~/.databrickscfg` in linux)
+  * Sample command to give Scope Read access to a Databricks Group
+  ```
+  databricks groups list
+  databricks secrets list-scopes
+  databricks secrets put-acl --scope myScopeName --principal MyDatabricksGroupName --permission READ
+  ```
+  * 
