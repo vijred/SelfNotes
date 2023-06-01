@@ -177,7 +177,10 @@ Config
     -   `git config --global --edit` 
 * Disable SSL Verify
     -   `git config --global http.sslVerify false`
-
+* How to view list of all global configurations
+    - `git config --list --global`
+* How to list origin of all configurations
+    - `git config --list --show-origin`
 * How to edit gitconfig file
     -   `git config --global --edit` 
 * Disable SSL Verify
