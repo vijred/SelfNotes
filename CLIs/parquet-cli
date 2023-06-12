@@ -1,0 +1,16 @@
+This module can be used to read parquet files!
+
+Install pip module and use it - Ref: https://github.com/chhantyal/parquet-cli (Yes, this is not the Powershell)
+
+```
+#install 
+pip install parquet-cli
+
+
+parq 'C:\Users\20230612\haha.parquet'
+
+parq 'C:\Users\20230612\haha.parquet' --schema
+
+parq 'C:\Users\20230612\haha.parquet' --head 10
+
+```
