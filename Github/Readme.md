@@ -67,7 +67,7 @@ Credential Management:
 git remote
 git remote set-url origin git@github.com:yourname/yourrepo.git
 
-# How to remove credentials , usefule when password is reset
+# How to remove credentials, useful when the password is reset.  Unset credentials and run git pull (this asks for credentials again)
 git config --global --unset credential.helper
 git config --system --unset credential.helper
 
