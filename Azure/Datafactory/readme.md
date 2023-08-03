@@ -8,6 +8,7 @@ Self hosted Integration Runtime -
   * How to Automate installation - Use base installation ocncept from https://github.com/Azure/Azure-DataFactory/tree/main/SamplesV2/SelfHostedIntegrationRuntime/AutomationScripts. build Automation using Puppet or Ansible!
   * Do I need to intall JRE? JER or Open JDK is needed to convert dataset into .Parquet files in the system. Ref:  https://learn.microsoft.com/en-us/azure/purview/scanning-shir-troubleshooting
     * Of JRE is installed, there is no dependency with JAVA_HOME, if Open JDK is installed add JAVA_HOME system variable referencing to jre location of OpenJDK. (Ref: https://learn.microsoft.com/en-us/azure/purview/manage-integration-runtimes#java-runtime-environment-installation)
+  * How to reregister a SHIR Node - Edit Powershell Script (Example location: C:\Program Files\Microsoft Integration Runtime\5.0\PowerShellScript\RegisterIntegrationRuntime.ps1). Add $gatewayKey, and $NodeName parametes and run as Administrator.
 
 
 How to clone ADF Workspace to a new workspace?
