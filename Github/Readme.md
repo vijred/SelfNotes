@@ -71,8 +71,9 @@ git remote set-url origin git@github.com:yourname/yourrepo.git
 git config --global --unset credential.helper
 git config --system --unset credential.helper
 
-# How to configure credentials to store
+# How to configure credentials to store (Note: This stores the credentials on the system. `-credentials` on Windows Server / `~/.git-credentials` on Linux server; By default it will be secured)
 git config --global credential.helper store
+
 
 # How to provide password during password reset. Just add -u option during push, it will read new credentials
 git push -u origin branch_name_that_you_want_to_push
