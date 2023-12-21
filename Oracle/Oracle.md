@@ -94,6 +94,8 @@ END failed_logon_trg
 ;
 
 ```
+* Toad - Can be configured to execute the SQL Statements in threads, background threads. This allows to execute multiple statements. Settigns cna be found in View -> Toad Options -> Oracle -> Transactions -> [Execute queries in threads (creates seperate session)]
+
 * Learning Oracle pointers 
   - https://education.oracle.com/
   - https://learn.oracle.com/ols/learning-path/become-an-oci-architect-associate/35644/98012
