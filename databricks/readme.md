@@ -245,4 +245,9 @@ spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account>.dfs.co
   databricks secrets list-scopes
   databricks secrets put-acl --scope myScopeName --principal MyDatabricksGroupName --permission READ
   ```
-  * 
+
+* Is there any ODBC Driver for Databricks
+  - Yes, Download from - https://www.databricks.com/spark/odbc-drivers-download 
+  - What is the architecture - https://www.databricks.com/blog/2021/08/11/how-we-achieved-high-bandwidth-connectivity-with-bi-tools.html
+  - Is there any opiton to switch to old architecture? Yes, use this parameter - `EnableQueryResultDownload="0"`
+  - Ref: https://stackoverflow.com/questions/77723648/databricks-odbc-driver-fails-if-number-of-rows-are-exceeding-the-limit 
