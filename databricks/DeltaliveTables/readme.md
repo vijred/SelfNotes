@@ -11,3 +11,7 @@ myFile = spark.read.options(delimiter="|").csv("abfss://temp@" + datalakeStorage
 #display(verifyFile)
 myFile.write.mode("append").format("delta").saveAsTable("myTableName")
 ```
+
+* Inteersting Demo and workshop material about Databricks Realtime decision making
+  - https://now.informatica.com/data-engineering-summit-agenda.html?aliId=eyJpIjoiNDZPMjVra2dNZG90MFZkTSIsInQiOiJJUnVcL2VrRHBDNkRhNnlSV3ZYRkpvQT09In0%253D
+  - Github repo erference - https://github.com/databricks/tmm/tree/main/Pipelines-Workshop
