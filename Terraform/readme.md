@@ -41,6 +41,90 @@ Global options (use these before the subcommand, if any):
   -version      An alias for the "version" subcommand.
 
 
+Options
+--------
+If you are coming back using Terraform on you machine for experimenting after a long time, this is quick guide to come back.
+
+*  Create the main.tf file with required content
+```
+terraform {
+  # backend "azurerm" {
+  # }
+  required_providers {
+    azurerm = { 
+        source  = "hashicorp/azurerm"
+        version = "= 3.10" # djp "~> 3.21"
+    }     
+  }
+  required_version = ">=0.15.0" # djp ">= 0.13"
+}
+
+# locals {
+#   private_dns_link = {
+#     "EASTUS" = "/subscriptions/safsfdsafds-dsafdsafds-fdsfdsafdsa-fdsf/resourceGroups/dfdsafd/providers/Microsoft.Network/privateDnsZones"
+#     "WESTUS" = "/subscriptions/afdsafdsfd-dsfdafdsf-dsfdsdfdsfdsfdsfdf/resourceGroups/safdfds/providers/Microsoft.Network/privateDnsZones"
+#   }
+# }
+
+provider "azurerm" {
+  skip_provider_registration = true
+  features {}
+  }
+
+data "azurerm_key_vault" "kv" {
+  name                = var.keyvaultname
+  resource_group_name = var.resource_group_name
+}
+
+data "azurerm_key_vault_secret" "vks" {
+  name         = var.keyvault_secret_name
+  key_vault_id = data.azurerm_key_vault.kv.id
+}
+
+module "azure_mssql_server" {
+ source               = "http://repository.mydomain.com:1111/artifactory/azure_mssqlserver_0.0.0.tar.gz"
+ name                 = var.sql_server_name
+ db_names             = var.db_names
+ resourceGroupName    = var.resource_group_name
+ #...
+}
+```
+* create `variables.tf` file with all variables used
+```
+variable "keyvaultname" {
+  type        = string
+  description = "Name of keyvault"
+}
+
+variable "keyvault_secret_name" {
+  type        = string
+  description = "keyvault secret name"
+}
+
+variable "resource_group_name" {
+  type = string
+}
+```
+* Create variable input file like myvariables.tfvars
+```
+location                                 = "eastus"
+resource_group_name                      = "vj-rg-keyvault"
+vnet_resource_group_name                 = "sdfdsf"
+vnet_name                                = "vnet1000"
+```
+*  `terraform init` is the first command to execute that creates `.terraform.lock.hcl` and `.terraform` folder with required modules.
+*  If you are prompted for a container name, that indicates Terraform is planning to sore the state file in a storage container like Azure blob. Comment out the block like `backend "azurerm" {}`
+*  Login into Azure if you are creating Azure resource `az login --scope https://graph.microsoft.com//.default`
+*  Select the correct subscription
+```
+z login --scope https://graph.microsoft.com//.default
+az account list --output table
+az account set --subscription "vijay-subscription"
+```
+*  Create a plan - `terraform plan --var-file="./vjtestenv.tfvars"  --out myplan`
+*  Apply the plan `terraform apply "myplan" -auto-approve`
+
+
 How-to:
 -------
 * How to pass variables example:
@@ -50,7 +134,7 @@ How-to:
   - terraform apply --var-file="./sample1.tf.vars" -auto-approve
 
 * How to apply a generated plan 
-  - terraform apply "myplan" -auto-approve
+  - terraform apply "myplan"
 
 * How to import configuration into statefile that is alreadt defined in Terraform configuraiton (When a configuration is changed in Azure directly, added the same in Terraform code, -refresh-only addres the resource into statefile) - (https://developer.hashicorp.com/terraform/tutorials/state/refresh) 
   - terraform apply -refresh-only
