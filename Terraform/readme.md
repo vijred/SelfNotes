@@ -134,7 +134,7 @@ How-to:
   - terraform apply --var-file="./sample1.tf.vars" -auto-approve
 
 * How to apply a generated plan 
-  - terraform apply "myplan"
+  - terraform apply -auto-approve "myplan"
 
 * How to import configuration into statefile that is alreadt defined in Terraform configuraiton (When a configuration is changed in Azure directly, added the same in Terraform code, -refresh-only addres the resource into statefile) - (https://developer.hashicorp.com/terraform/tutorials/state/refresh) 
   - terraform apply -refresh-only
