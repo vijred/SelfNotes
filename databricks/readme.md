@@ -251,3 +251,9 @@ spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account>.dfs.co
   - What is the architecture - https://www.databricks.com/blog/2021/08/11/how-we-achieved-high-bandwidth-connectivity-with-bi-tools.html
   - Is there any opiton to switch to old architecture? Yes, use this parameter - `EnableQueryResultDownload="0"`
   - Ref: https://stackoverflow.com/questions/77723648/databricks-odbc-driver-fails-if-number-of-rows-are-exceeding-the-limit 
+
+* Uncommon problems-
+  - Web browser authentication issues while connecting from on-premise servers connecting to a secured private endpointed Databricks workspace.
+    -  Fix using the recommendation listed in the documentation: https://learn.microsoft.com/en-us/azure/databricks/security/network/classic/private-link-simplified
+    -  Create a forwarder to address the problem
+   
