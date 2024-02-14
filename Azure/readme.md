@@ -39,3 +39,17 @@ Click New Registration
     Click Add
 
 ```
+
+* Here is a sample code to connect to Azure using Service principal (App Registration) and execute commands wiht Service principal credentials. This is super helpful in case of workarounds
+```
+
+$ApplicationId = "asfdsafdsf-dsaf-sadf-sadfdsa-dsafdsafdsf" ## tis is listed as Application (client) ID in portal
+$Password = "sadfdsafdsfadsfdsfdsafdsafd" ## This is the secret value created the the service principal 
+$TenantId = "safdsaf-dsaf-dsaf-dsaf-dsafdsafdsafdsa" ## This is Tenant ID, This is visible in Azure portal
+$subscriptionId = "asfdsfsdf-sdf-safdsaf-adsfd-sadfdsafdsafasd" 
+$SecuredPassword = ConvertTo-SecureString -AsPlainText $Password -Force # Convert Password to secured string 
+$Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $ApplicationId, $SecuredPassword 
+Connect-AzAccount -ServicePrincipal -TenantId $TenantId -Credential $Credential # Connect to Azure using Service principal credentials 
+$sub = Get-AzSubscription -SubscriptionId $subscriptionId 
+Set-AzContext -Subscription $sub ## Switch to the required subscription 
+```
