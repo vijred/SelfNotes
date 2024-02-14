@@ -15,3 +15,20 @@ How to clone ADF Workspace to a new workspace?
 * https://learn.microsoft.com/en-us/azure/data-factory/copy-clone-data-factory 
 
 
+How to authenticate one of the ADF to access SHIR Created in a different ADF, following is sample Powershell Code (AZ cmdlet)
+```
+$ResourceGroupName = "rg-asfdsafsds-001"
+$SharedDataFactoryName = "dataf-sadfdsafdsaf-001"
+$SharedIntegrationRuntimeName = "ir-afdsfdsfdsf-001"
+
+$SharedIR = Get-AzDataFactoryV2IntegrationRuntime -Name $SharedIntegrationRuntimeName -ResourceGroupName $ResourceGroupName -DataFactoryName $SharedDataFactoryName
+
+
+$linkedObjectId = "sfdadsfdsafd-sdafds-dsaf-dsaf-dsafdsafdsafdsafdsa"   # This is the principalId of ADF Resource, you can see it in Portal json view 
+
+
+New-AzRoleAssignment `
+    -ObjectId $linkedObjectId `
+    -RoleDefinitionName 'Contributor' `
+    -Scope $SharedIR.Id
+```
