@@ -11,11 +11,11 @@ Self hosted Integration Runtime -
   * How to reregister a SHIR Node - Edit Powershell Script (Example location: C:\Program Files\Microsoft Integration Runtime\5.0\PowerShellScript\RegisterIntegrationRuntime.ps1). Add $gatewayKey, and $NodeName parametes and run as Administrator.
 
 
-How to clone ADF Workspace to a new workspace?
-* https://learn.microsoft.com/en-us/azure/data-factory/copy-clone-data-factory 
+* How to clone ADF Workspace to a new workspace?
+  * https://learn.microsoft.com/en-us/azure/data-factory/copy-clone-data-factory 
 
 
-How to authenticate one of the ADF to access SHIR Created in a different ADF, following is sample Powershell Code (AZ cmdlet)
+* How to authenticate one of the ADF to access SHIR Created in a different ADF, following is sample Powershell Code (AZ cmdlet)
 ```
 $ResourceGroupName = "rg-asfdsafsds-001"
 $SharedDataFactoryName = "dataf-sadfdsafdsaf-001"
@@ -32,3 +32,8 @@ New-AzRoleAssignment `
     -RoleDefinitionName 'Contributor' `
     -Scope $SharedIR.Id
 ```
+
+
+* ADF, what if you publish a componnet (Managed Private Endpoint) in live Mode? Assume the problem is to get the componnet information into ARM Template.
+  * There is no easy way to bring this into Arm Template (Default in adf_publish branch). Fix is to update publish_config.json file in collaboration branch, update publishBranch value to new name like `"publishBranch":"adf_publish2"`. Now, refresh ADF Workspace and publish. This will publish ARM Templates into New Branch. Delete the old branch `adf_publish`. Now change publish_config.json to adf_publish. Now refresh Workspace and publish again that updates all components to ARM Template that can be used to deploy into other environments.
+ 
