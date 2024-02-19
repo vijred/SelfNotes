@@ -37,3 +37,11 @@ Release pipelines
 * How to give access between projects - To be precise, how to allow a pipeline to build an Artifact from diferent project Git Repo in the same organization
   * https://learn.microsoft.com/en-us/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml#configure-external-project
   * There will be an account (Project_name Build Service). Need to give Read access on the project!
+
+* How to register a node to SHIR using the registration Key, or switch to a different SHIR
+  * Use `.\RegisterIntegrationRuntime.ps1` at C:\Program Files\Microsoft Integration Runtime\5.0\PowerShellScript to complete registration, example below! 
+```
+PS C:\Program Files\Microsoft Integration Runtime\5.0\PowerShellScript>  .\RegisterIntegrationRuntime.ps1 -gatewayKey "IR@asdfdsf-sadf-sf-asfsaf-fdsfdsafdsafadsf@datafactoryname@ServiceEndpoint=datafactryname.region.datafactory.azure.net@sadf/fdsfdsfdsfdsfdsafdsafadsfdaffd=" -NodeName "NYNODENAME"
+Integration Runtime registration is successful!
+```
+
