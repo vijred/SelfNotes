@@ -257,3 +257,26 @@ spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account>.dfs.co
     -  Fix using the recommendation listed in the documentation: https://learn.microsoft.com/en-us/azure/databricks/security/network/classic/private-link-simplified
     -  Create a forwarder to address the problem
    
+* Sample code to install ODBC Drivers on a server, pull Databricks delta live table infomrtaion
+```
+Get-Date
+$dnsName= "DevODBCConnectionName"
+$user="token"
+$password="dapidasdfdsfdsfdsfdsafdsfdsafdsf-3"
+$sqlQuery= "select * from delta_lake_name.tablename limit 6"
+
+$conn = New-Object Data.Odbc.OdbcConnection
+$conn.ConnectionString= "dsn=$dnsName;uid=$user;pwd=$password;"
+$conn.open()
+$command =$conn.CreateCommand();
+$command.CommandText=$sqlQuery
+
+$dataAdapter = New-Object System.Data.Odbc.OdbcDataAdapter $command
+
+$dataTable = new-object "System.Data.DataTable"
+$dataAdapter.Fill($dataTable)
+$conn.close()
+
+$dataTable.rows.count
+$dataTable.rows[4]
+```
