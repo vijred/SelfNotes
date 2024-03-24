@@ -105,3 +105,100 @@ F-statistic: 79.14 on 4 and 367 DF,  p-value: < 2.2e-16
 * Intercept = 23.7253652:
 * R-squared: Percent of variation explained by the model. This is between 0,1 and higher the better for the model 
 * Residual standard error/RMSE/ Standard Error of the regression: Units is same as Respones variable (In our case APR).  This is also called RMSE (Root Mean Squared Error). This is on average how much error exists in response.
+
+
+------------------------------------------
+DETAILED use cases 
+
+* How to remove all variable from environment - `rm(list = ls())`
+* How to read data from a frame - `df <- read.csv("ChurnData.csv", stringsAsFactors = TRUE)`
+* Structure of the data - `str(df) `
+* Make a column as a factor - `df$AreaCode <- as.factor(df$AreaCode) # make area code into a factor`
+* See first and last few rows of a dataframe - `head(df) # tail(df)`
+* Remove column 1, 4 from dataframe - `df <- df[,c(-1,-4)]`
+* Summart of a df - `summary(df)`
+* Column counts - `table(df$Churn)`
+* Column percentages - `prop.table(table(df$Churn))`
+* Create a new DF from existing one with only numaric values -
+```
+library(dplyr) 
+df.num <- select_if(df, is.numeric) # new dataframe with numeric only columns
+str(df.num) # a quick look. Notice includes both integer and real columns
+```
+* Calculate mean and median by column and also merge factors into a dataframe -
+```
+means <- apply(df.num, 2, mean) # calculating the means by column
+medians <- apply(df.num, 2, median) # calculating the medians by column
+sds <- apply(df.num, 2, sd) # calculating the SDs by column
+cbind(Mean = means, Median = medians, SD = sds) # putting them together for display
+```
+* Plot a bar graph based on number of items - `plot(df$Churn, xlab = "Churn", ylab = "Count", col = "red4")`
+* Histogram of a distribution -
+```
+hist(df$TotalDayMinutes, xlab = "Total Daily Mins", 
+     main = "Distribution of Total Daily Mins")
+```
+* Distribution by 2 categorical variables
+```
+#Distribution of Churn by other categorical variables
+plot(df$Churn ~ df$InternationalPlan, 
+     xlab = "International Plan", ylab = "Churn", 
+     col = c("red4", "palegreen3"))
+```
+* Distribution based on numarical variables
+```
+# Relationships between numerical variables
+plot(df$TotalEveMinutes ~ df$TotalDayMinutes, 
+     pch = 20, col = "blue",
+     xlab = "Total Day Minutes", ylab = "Total Evening Minutes")
+```
+* Relation b/n categorical and numaric variables -
+```
+# Relationships between numerical variables & categorical variables
+plot(df$TotalDayMinutes ~ df$Churn, xlab = "Churn", 
+     ylab = "Total Day Minutes", col = "slategray3")
+```
+* Explore GGPLOT2
+```
+library(ggplot2)
+
+ggplot(df, aes(x = TotalDayCharge, y = TotalEveCharge)) + 
+  geom_point() #scatterplot
+
+
+ggplot(df, aes(TotalDayCharge)) + 
+  geom_histogram() # histogram
+
+ggplot(df, aes(TotalDayCharge)) + geom_density() # densityplot
+
+ggplot(df, aes(x = Churn, y = TotalDayCharge)) + geom_boxplot() +
+  labs(x = "Churn", y = "Total Day Charges") # side by side boxplots
+
+ggplot(df, aes(x = AreaCode, y = mean(AccountLength))) +
+  geom_col(fill = "red4") +
+  labs(x = "Area Code", y = "Avg. of Account Length") # Column plot showing averages
+
+```
+* How to draw a graph using different color for factor1 and different shape for factor2 and axis X and Y for different numaric values?
+```
+# Create the ggplot object
+p1 <- ggplot(df_insurance, aes(x = age, y = charges, color = smoker, shape = highbmi))
+
+# Add the geometry layer (points)
+p1 + geom_point() + 
+  labs(title = "Charges and Age") +
+  scale_shape_manual(values = c("F" = 16, "T" = 17))  # Mapping shapes to highbmi values
+
+```
+* Last option is to add facet_wrap, that creates multiple graphs next to each other for each factor
+```
+# Create the ggplot object
+p1 <- ggplot(df_insurance, aes(x = age, y = charges, color = smoker, shape = highbmi))
+
+# Add the geometry layer (points) and facet by children
+p1 + geom_point() + 
+  labs(title = "Charges and Age") +
+  scale_shape_manual(values = c("F" = 16, "T" = 17)) +  # Mapping shapes to highbmi values
+  facet_wrap(~children)  # Faceting by children factor
+```
+* 
