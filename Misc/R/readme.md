@@ -201,4 +201,14 @@ p1 + geom_point() +
   scale_shape_manual(values = c("F" = 16, "T" = 17)) +  # Mapping shapes to highbmi values
   facet_wrap(~children)  # Faceting by children factor
 ```
+* Continues distribution of a numaric and a factorial columns
+```
+## -- A graph of 2 continuos distriutions together
+# Density Graph: Age by Survived
+ggplot(df_titanic, aes(x = Age, fill = Survived)) +
+  geom_density(alpha = 0.4) +
+  labs(title = "Distribution of Passenger's Age by Survived", x = " Age",
+       y = "Density")
+
+```
 * 
