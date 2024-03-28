@@ -95,6 +95,13 @@ display(joined_df_filter_col.selectExpr("w_id", "upper(name) as big_name", "lowe
   * How to install a package - `py -m pip install sampleproject` ,`py -m pip install azure-storage-file-datalake`
    * Ref: https://packaging.python.org/en/latest/tutorials/installing-packages/
 
+* How to print the schema of a dataframe -
+  * df.printschema()
+  * print(df.info())
+
+
+-----------------------
+
 * Documentation
  * The Python Tutorial : https://docs.python.org/3.11/tutorial/index.html
  * Python Documentation: https://docs.python.org/3.11/index.html
