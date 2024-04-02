@@ -3,8 +3,10 @@ R Language -
 
 * Install location - https://www.r-project.org/.
 * Install Rcmdr package - ` install.packages("Rcmdr")`
-* Start Rcmdr - ` library(Rcmdr)`
-* Reinstalling a package - `install.packages("Rcmdr", dependencies = TRUE)`
+* Start Rcmdr - ` library(Rcmdr)` (Load a package)
+* Reinstalling a package - `install.packages("Rcmdr", dependencies = TRUE)` (Install a package)
+* How to search for documentation - `?library` (This searches for documenation reltaed to liubrary)
+* How to use sessions in .R files, use `##----sessionName-------` is a good way to define sessions
 
 
 
@@ -14,6 +16,36 @@ R Language -
 * setwd("C:/Users/somename")
 * getwd()
 * ` library(Rcmdr)`
+* `class` used to find the type of a variable , `typoeof()` can be used too. Example - `Class(VarName)`
+* Order of operations -Left to right,  P E MD AS
+* Logical comparision operations, `== , > , < , !=, <=, |, &`
+* `as.numeric(TRUE)`, converts other possible types to numeric
+* How to remove variables - `rm(var1, var2)`. To remove all variables `rm(list= ls())`
+* concatinate function - `c(val1, val2, val3)`; First element is index of 1. meaning vectorvar[1] = val1
+* `summary(df)` - get the summary of the data frame
+* How to create a matrix using vectors -> `mat1 = cbing(vector1, vector2)`; other way `mat2 <- matrix(vector1m, nrow=4, ncol=3, byrow = TRUE )`; One more - `max.matrix( mat3[,2:4])`
+* How to get dimention of matrix - `dim(mat1)`
+* Transpose of matrix = `t(matrix3)`
+* Missing values or null values - Represented as `NA`
+* Option to address missing values : `mean(varname, na.rm=TRUE)`
+* `is.na()` function to see if ther eis a missing value; To find number of nulls, `sum(is.na())`
+* factors - are special variables used to deal with catagorical variables. Ex: `pgm <- as.factor(pgm)`
+  * Levels and level values will be involved in storing categorical variables
+  * `levels(pgm)` is a way to check levels of a factor variables. Levels can be manually defined that may not be in alphabetical order- `pgm2 <- factor(pgm, levels = c("val1", "val3", "val2"))`
+  * To change just first level, `relevel(pgm2, "val3")`
+* Data Frames - `vect1 <- c("a", "b", "c"); vect2 <- c("MBA", "EMBA", "PMBA"); df <- data.frame(vect1, vect2)`
+  * Dimentions of df - `dim(df)`; Names of variables - `names(df)`; Structure of df - `str(df)`; See data of df - `View(df)`
+  * Both these formats returns a vector - `df[1,], df[,1]`; `df$vect1` returns vector too
+  * To return a df, you need to use something like `df["vect1"]; df[c("vect1","vect2")]`
+  * How to read with string as factor - `getdf <- read.csv("Telco_Churn1.csv", stringsAsFactors = TRUE)`
+  * Assign one column as a factor - `df$AreaCode <- as.factor(df$AreaCode)`
+* Exploring dataframe
+  * counts - `tables(df$col1)`; Percentages - `prop.table(table(df$col1, df$col2))`
+  * Example to select only numarical values - `library(dplyr); df.num <- select_if(df, is.numeric)`
+  * Mean of given columns - `means <- apply(df.num, 2, mean)`
+  * graph funcitons - `plot()`; histogram - `hist()`; boxplot `boxplot(df$col, horizontal = TRUE)`
+  * Advanced graphics - `librar(ggplot2)`; add a line - `+ geom_smooth()`; all pointes - `+ geom_point()`; density - `+ geom_density()`
+
 
 ### Dataset commands 
 * Read dataset
