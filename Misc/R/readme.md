@@ -47,7 +47,7 @@ R Language -
   * Mean of given columns - `means <- apply(df.num, 2, mean)`
   * graph funcitons - `plot()`; histogram - `hist()`; boxplot `boxplot(df$col, horizontal = TRUE)`
   * Advanced graphics - `librar(ggplot2)`; add a line - `+ geom_smooth()`; all pointes - `+ geom_point()`; density - `+ geom_density()`
-
+* How to clear R console - `Ctrl + L`
 
 ### Dataset commands 
 * Read dataset
