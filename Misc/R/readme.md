@@ -75,6 +75,7 @@ R Language -
 * How to split the space with different lengths using layout function - `layout(matrix(c(1,2,3,3), nrow = 2, byrow = TRUE))`
   * This functions allows 3 graphs but 3rd graph uses 2 grid spaces
   * Make sure to reset using pa function - `par(mfrow = c(1,1)) # resetting the grid back`
+* Find relationship between multiple variables - Use function `pairs()`. Ex: `pairs(house_prices[, c("df$Price", "df$SqFt", "df$Bedrooms", "df$Bathrooms", "df$Offers")])`
 
 * Histogram
 ```
