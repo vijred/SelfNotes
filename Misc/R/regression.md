@@ -66,6 +66,12 @@ predict(reg2, newobs)
 
 #predicting charges for this person (including 95% prediction interval)
 predict(reg2, newobs, int = "p", level = 0.95)
+  # "p" indicates prediction interval for a user
+
+predict(reg2, newobs, int = "c", level = 0.95)
+  # "c" indicates confidence interval for average users. On Average, users with these values have a value between thees intervals 
+
+
 ```
 * Measuring performance of a prediction - 
 ```
