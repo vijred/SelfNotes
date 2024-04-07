@@ -69,6 +69,12 @@ R Language -
 
 ### Graphs
 
+* How to print a graph in multiple grids, example 2X2 - Use function `par(mfrow = c(2,2)) # creating plots in a 2 x 2 grid`
+  * Make sure to reset it by using `par(mfrow = c(1,1)) # resetting the grid back`
+* How to split the space with different lengths using layout function - `layout(matrix(c(1,2,3,3), nrow = 2, byrow = TRUE))`
+  * This functions allows 3 graphs but 3rd graph uses 2 grid spaces
+  * Make sure to reset using pa function - `par(mfrow = c(1,1)) # resetting the grid back`
+
 * Histogram
 ```
 # Graphs -> Histogram 
