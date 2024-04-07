@@ -121,6 +121,25 @@ vld.preds <- predict(reg3, ins.vld)
 accuracy(vld.preds, ins.vld$charges)
 ```
 
+Partitionin data using method-2 
+```
+# Set seed for reproducibility
+set.seed(123)
+
+# Determine the number of rows for training set
+train_rows <- round(0.75 * nrow(house_prices))
+
+# Randomly select rows for training set
+train_indices <- sample(1:nrow(house_prices), train_rows, replace = FALSE)
+
+# Create training set
+train_data <- house_prices[train_indices, ]
+
+# Create validation set
+validation_data <- house_prices[-train_indices, ]
+```
+
+
 * -
 ```
 #---- Feature Selection ----
