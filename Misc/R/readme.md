@@ -62,7 +62,8 @@ R Language -
 * View variables in Dataset - `names(Dataset)`
 * Structure of dataset - `str(dataset)`
 * convert one of the column/factor (Vctor) into different type `Insurance$Smoker <- as.factor(Insurance$Smoker)`
-
+* How to create a new column based on a condition - `ins$obese <- ifelse(ins$bmi >= 30, "yes", "no")`
+* How to convert a column into a factor - `ins$obese <- as.factor(ins$obese)`
 
 
 ## Concepts 
@@ -218,6 +219,7 @@ ggplot(df, aes(x = AreaCode, y = mean(AccountLength))) +
   geom_col(fill = "red4") +
   labs(x = "Area Code", y = "Avg. of Account Length") # Column plot showing averages
 
++ geom_smooth(method = lm, se = FALSE) # This adds a smooth line
 ```
 * How to draw a graph using different color for factor1 and different shape for factor2 and axis X and Y for different numaric values?
 ```
