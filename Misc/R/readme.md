@@ -29,6 +29,8 @@ R Language -
 * Missing values or null values - Represented as `NA`
 * Option to address missing values : `mean(varname, na.rm=TRUE)`
 * `is.na()` function to see if ther eis a missing value; To find number of nulls, `sum(is.na())`
+* How to avoid using df$colname but use colname - Use `attach(df)` that enables to use the column name directly. `detach(df)` is the way to remove this
+* What is `search()` - This is a way to find the sequence of variables and functions where R finds it from
 * factors - are special variables used to deal with catagorical variables. Ex: `pgm <- as.factor(pgm)`
   * Levels and level values will be involved in storing categorical variables
   * `levels(pgm)` is a way to check levels of a factor variables. Levels can be manually defined that may not be in alphabetical order- `pgm2 <- factor(pgm, levels = c("val1", "val3", "val2"))`
