@@ -99,6 +99,9 @@ display(joined_df_filter_col.selectExpr("w_id", "upper(name) as big_name", "lowe
   * df.printschema()
   * print(df.info())
 
+* All about COLAB
+  * How to access Colab - https://colab.google/
+  * How to transfer files and understand file structure - https://neptune.ai/blog/google-colab-dealing-with-files 
 
 -----------------------
 
