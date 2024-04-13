@@ -34,7 +34,7 @@ R Language -
 * factors - are special variables used to deal with catagorical variables. Ex: `pgm <- as.factor(pgm)`
   * Levels and level values will be involved in storing categorical variables
   * `levels(pgm)` is a way to check levels of a factor variables. Levels can be manually defined that may not be in alphabetical order- `pgm2 <- factor(pgm, levels = c("val1", "val3", "val2"))`
-  * To change just first level, `relevel(pgm2, "val3")`
+  * To change just first level, `relevel(pgm2, "val3")` - `beer$Preference <- relevel(beer$Preference, ref = "Regular")`
 * Data Frames - `vect1 <- c("a", "b", "c"); vect2 <- c("MBA", "EMBA", "PMBA"); df <- data.frame(vect1, vect2)`
   * Dimentions of df - `dim(df)`; Names of variables - `names(df)`; Structure of df - `str(df)`; See data of df - `View(df)`
   * Both these formats returns a vector - `df[1,], df[,1]`; `df$vect1` returns vector too
