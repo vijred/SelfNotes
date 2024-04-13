@@ -48,6 +48,7 @@ R Language -
   * graph funcitons - `plot()`; histogram - `hist()`; boxplot `boxplot(df$col, horizontal = TRUE)`
   * Advanced graphics - `librar(ggplot2)`; add a line - `+ geom_smooth()`; all pointes - `+ geom_point()`; density - `+ geom_density()`
 * How to clear R console - `Ctrl + L`
+* What is the use of seed? - If you use seed, same set of random numbers will be generated with the same seed every time. Example: `set.seed(57)`
 
 ### Dataset commands 
 * Read dataset
@@ -219,6 +220,11 @@ ggplot(df, aes(x = Churn, y = TotalDayCharge)) + geom_boxplot() +
 ggplot(df, aes(x = AreaCode, y = mean(AccountLength))) +
   geom_col(fill = "red4") +
   labs(x = "Area Code", y = "Avg. of Account Length") # Column plot showing averages
+
+# Choose the colors 
+ggplot(beer, aes(x=Income, fill=Preference)) +
+  geom_density(alpha = 0.4) +
+  scale_fill_manual(values = c("tan3", "tan1"))
 
 + geom_smooth(method = lm, se = FALSE) # This adds a smooth line
 ```
