@@ -49,6 +49,28 @@ R Language -
   * Advanced graphics - `librar(ggplot2)`; add a line - `+ geom_smooth()`; all pointes - `+ geom_point()`; density - `+ geom_density()`
 * How to clear R console - `Ctrl + L`
 * What is the use of seed? - If you use seed, same set of random numbers will be generated with the same seed every time. Example: `set.seed(57)`
+* How to create and use a functions on a dtaframe, below example is to normalize variables on a given function
+```
+# We'll remove default_No, and rename default_Yes to "default"
+# We will leave both columns for the student dummies as collinearity
+# is not a problem here and leaving all dummies with predictors is
+# better for k-nn
+
+def2 <- def2[,-3]
+names(def2)[3] <- "default"
+def2 <- def2[,c(3, 1, 2, 4, 5)] # making default the first column
+
+# Creating a function to normalize the numerical columns
+# the scale() function in R calculates Z-scores
+# Here we'll use a min-max scaler to normalize
+# Therefore creating a "custom" function to accomplish this
+
+minmaxnorm <- function(x) {
+  normx <- (x - min(x))/(max(x) - min(x))
+  return(normx)
+  # all values will be scaled between 0 and 1
+}
+```
 
 ### Dataset commands 
 * Read dataset
