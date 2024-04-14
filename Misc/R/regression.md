@@ -236,3 +236,26 @@ summary(logitmodels$BestModel)
 # This will give the list of columns selected with best fitted model
 ```
 
+* How to split the dataset into 3 partitions
+```
+head(def3) # Taking a quick peek
+
+## Partitioning the data
+set.seed(123)
+
+nrows <- dim(def3)[1]
+trainrows <- sample(1:nrows,nrows*0.5)
+validrows <- sample(setdiff(1:nrows,trainrows), nrows*0.3)
+testrows <- setdiff(1:nrows,union(trainrows, validrows))
+
+# Creating the training, validation, and test data sets
+
+train.x <- def3[trainrows, -1]
+train.y <- def3[trainrows, 1]
+valid.x <- def3[validrows, -1]
+valid.y <- def3[validrows, 1]
+test.x <- def3[testrows, -1]
+test.y <- def3[testrows, 1]
+```
+
+
