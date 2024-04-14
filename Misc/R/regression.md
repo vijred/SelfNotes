@@ -153,7 +153,86 @@ summary(reg4)
 # This returned the same model as reg3
 ```
 
+* Sample code to identify accurady on training and validation data based on a cut-off value
+```
+cutoff <- 0.5
+
+## training data
+labels.trn <- ifelse(preds.trn > cutoff, "Light", "Regular") # predictions
+trnpreds <- data.frame(Actual = beer.trn$Preference, Predicted = labels.trn)
+View(trnpreds) # looking at actual versus predictions
+accuracy <- sum(ifelse(trnpreds$Actual == trnpreds$Predicted, 1, 0))/nrow(trnpreds)
+print(paste("Accuracy on Training Data:",round(accuracy, 3)))
+
+## validation data
+labels.vld <- ifelse(preds.vld > cutoff, "Light", "Regular") # predictions
+vldpreds <- data.frame(Actual = beer.vld$Preference, Predicted = labels.vld)
+View(vldpreds) # looking at actual versus predictions
+accuracy <- sum(ifelse(vldpreds$Actual == vldpreds$Predicted, 1, 0))/nrow(vldpreds)
+print(paste("Accuracy on Validation Data:",round(accuracy, 3)))
+```
+
+* How to use fastdummies, Converting the values 1,2 to 0,1 ... 
+```
+library(fastDummies)
+# This package is very helpful for creating dummy
+# variables quickly and cleaning up the resulting
+# data frame
+?dummy_cols # The function in fastDummies we'll use
+def2 <- dummy_cols(def,
+        remove_selected_columns = TRUE)
+str(def2)
+head(def2)
+
+# We'll remove default_No, and rename default_Yes to "default"
+# We will leave both columns for the student dummies as collinearity
+# is not a problem here and leaving all dummies with predictors is
+# better for k-nn
+
+def2 <- def2[,-3]
+names(def2)[3] <- "default"
+def2 <- def2[,c(3, 1, 2, 4, 5)] # making default the first column
+
+# > str(def)
+# 'data.frame':	1000 obs. of  4 variables:
+#  $ default: Factor w/ 2 levels "No","Yes": 1 2 2 2 2 1 1 1 2 1 ...
+#  $ student: Factor w/ 2 levels "No","Yes": 2 2 2 1 2 1 2 1 1 1 ...
+#  $ balance: int  1464 2110 1808 2125 1878 982 926 1162 2039 498 ...
+#  $ income : int  15657 17775 21849 44520 17473 38153 14258 49255 58606 55544 ...
+
+# > str(def2)
+# 'data.frame':	1000 obs. of  5 variables:
+#  $ default    : int  0 1 1 1 1 0 0 0 1 0 ...
+#  $ balance    : int  1464 2110 1808 2125 1878 982 926 1162 2039 498 ...
+#  $ income     : int  15657 17775 21849 44520 17473 38153 14258 49255 58606 55544 ...
+#  $ student_No : int  0 0 0 1 0 1 0 1 1 1 ...
+#  $ student_Yes: int  1 1 1 0 1 0 1 0 0 0 ...
+```
 
 
+* How to use Logistic regression
+```
+# Fitting a logistic regression model to the training data
+logreg <- glm(Preference ~ ., data = beer.trn, family = "binomial")
+summary(logreg)
+```
 
+* How to choose best columns for Logistic regression model using bestglm function
+```
+##---- Variable Selection ----
+library(bestglm)
+head(beer.trn)
+
+# *** In the next line of code, we need to make sure
+# *** that, in the data frame, the target variable
+# *** is the last column
+logitmodels <- bestglm(beer.trn,
+                       family = binomial,
+                       IC = "AIC",
+                       method = "forward")
+logitmodels$BestModels
+logitmodels$BestModel
+summary(logitmodels$BestModel)
+# This will give the list of columns selected with best fitted model
+```
 
