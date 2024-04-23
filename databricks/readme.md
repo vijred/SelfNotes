@@ -282,7 +282,7 @@ $dataTable.rows[4]
 ```
 
 * How to understand the content in dbfs system
-  * One of the options is to enable settings to browse and use Catalog to explore DBFS.
+  * One of the options is to enable settings to browse and use Catalog to explore DBFS. (Ref: https://docs.databricks.com/en/dbfs/file-browser.html)
   * Second and best option I found to check the log files and search a string is to run simple python code in Notebook to search for required files.
 ```
 !ls
