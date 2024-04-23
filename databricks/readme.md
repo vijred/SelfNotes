@@ -280,3 +280,18 @@ $conn.close()
 $dataTable.rows.count
 $dataTable.rows[4]
 ```
+
+* How to understand the content in dbfs system
+  * One of the options is to enable settings to browse and use Catalog to explore DBFS.
+  * Second and best option I found to check the log files and search a string is to run simple python code in Notebook to search for required files.
+```
+!ls
+!ls logs
+!head logs/log4j-active.log
+
+!grep 'searchstring' logs/spark_usage.json
+
+
+!zgrep -i 'searchstring' logs/2024-04-23-13.log.gz 
+!zgrep -i 'searchstring' logs/active.log | less
+```
