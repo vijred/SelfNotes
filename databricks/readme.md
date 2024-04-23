@@ -129,7 +129,7 @@ dbutils.notebook.run("vj_test_notebook1", 60, {"myargument": "Value_Passed", "ar
 ```
 
 * Databricks resources can be managed and viewed using CLI, CLI needs to be installed for the same. Ref: https://docs.databricks.com/dev-tools/cli/index.html 
-
+  * Once the profile is configured, the detals will be stored in a hidden file. You can see the profile infomration using the powershell command - `Get-Content ~/.databrickscfg`
 
 * Test MSSQL connection from Databricks 
 ```
