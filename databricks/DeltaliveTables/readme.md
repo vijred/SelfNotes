@@ -15,3 +15,6 @@ myFile.write.mode("append").format("delta").saveAsTable("myTableName")
 * Inteersting Demo and workshop material about Databricks Realtime decision making
   - https://now.informatica.com/data-engineering-summit-agenda.html?aliId=eyJpIjoiNDZPMjVra2dNZG90MFZkTSIsInQiOiJJUnVcL2VrRHBDNkRhNnlSV3ZYRkpvQT09In0%253D
   - Github repo erference - https://github.com/databricks/tmm/tree/main/Pipelines-Workshop
+
+* Error while creating a table, Summary of error - `Unable to cretae table, the location already exists and it is not a delta table`
+  * Fix is to manually delete the emptu location of the directory using `%rm -r "/dbfs/user/hive/warehouse/schemaname.db/tablename"`
