@@ -100,3 +100,17 @@ END failed_logon_trg
   - https://education.oracle.com/
   - https://learn.oracle.com/ols/learning-path/become-an-oci-architect-associate/35644/98012
   
+* Use regular expressions to check if a column has a given format or not -
+```
+SELECT SOURCE_REF_ID, BIRTHDATE
+FROM ADM_POTENTIAL_STUDENT_SD01
+WHERE ( NOT REGEXP_LIKE(BIRTHDATE, '^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[ |0-9]{3} [0-9]{4}$')
+-- OR LENGTH(BIRTHDATE) <> 11
+)
+AND DATA_SOURCE = 'MED';
+
+SELECT SOURCE_REF_ID, BIRTHDATE
+FROM ADM_POTENTIAL_STUDENT_SD01
+WHERE NOT REGEXP_LIKE(BIRTHDATE, '^[A-Z][a-z]{2}[ ].[0-9]{2} [0-9]{4}$')
+AND DATA_SOURCE = 'MED';
+```
