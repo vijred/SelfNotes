@@ -295,3 +295,17 @@ $dataTable.rows[4]
 !zgrep -i 'searchstring' logs/2024-04-23-13.log.gz 
 !zgrep -i 'searchstring' logs/active.log | less
 ```
+
+
+* Delta Sharing, How to access the data using Python (Tested on a JupyterLab
+```
+import delta_sharing
+client = delta_sharing.SharingClient(f"/mnt/xyzlocation/config.share")
+client.list_all_tables()
+## Sample Output: [Table(name='TableName', share='ShareName', schema='SchemaName')]
+table_url = f"/mnt/xyzlocation/config.share#Sharename.SchemaName.TableName"
+
+delta_sharing.load_as_pandas(table_url, limit=10)
+```
+
+
