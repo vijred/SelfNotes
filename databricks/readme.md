@@ -297,7 +297,7 @@ $dataTable.rows[4]
 ```
 
 
-* Delta Sharing, How to access the data using Python (Tested on a JupyterLab
+* Delta Sharing, How to access the data using Python (Tested on a JupyterLab) - deltashare
 ```
 import delta_sharing
 client = delta_sharing.SharingClient(f"/mnt/xyzlocation/config.share")
