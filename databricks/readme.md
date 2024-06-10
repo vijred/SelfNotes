@@ -309,3 +309,4 @@ delta_sharing.load_as_pandas(table_url, limit=10)
 ```
 
 
+* Security best practices - While sharing data with external users, I strongly encourage using security best practices outlined at https://www.databricks.com/blog/2022/08/01/security-best-practices-for-delta-sharing.html. 
