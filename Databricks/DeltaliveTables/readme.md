@@ -18,3 +18,9 @@ myFile.write.mode("append").format("delta").saveAsTable("myTableName")
 
 * Error while creating a table, Summary of error - `Unable to cretae table, the location already exists and it is not a delta table`
   * Fix is to manually delete the emptu location of the directory using `%rm -r "/dbfs/user/hive/warehouse/schemaname.db/tablename"`
+
+* How to disable Deletion vector on a Delta table
+```
+ALTER TABLE <table_name> SET TBLPROPERTIES (delta.enableDeletionVectors=false)
+REORG TABLE <table_name> APPLY(PURGE)
+```
