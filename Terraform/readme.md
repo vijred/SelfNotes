@@ -146,9 +146,27 @@ What is tained in Terraform
 
 
 Useful references for good understanding
-----------------------
+---------------------------------
 * Using complex variables:   https://blog.wimwauters.com/devops/2022-03-01_terraformusecases/ 
 * Using Loops: https://blog.gruntwork.io/terraform-tips-tricks-loops-if-statements-and-gotchas-f739bbae55f9
+
+How to pass conditional attributes 
+---------------------------------
+Reference of the component - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server 
+```
+  dynamic "azuread_administrator" {
+    for_each = var.ad_login != null ? [{
+      login     = var.ad_login
+      object_id = var.ad_object_id
+      azuread_authentication_only = var.azuread_authentication_only
+    }] : []
+    content {
+      login_username = azuread_administrator.value.login
+      object_id      = azuread_administrator.value.object_id
+      azuread_authentication_only = azuread_administrator.value.azuread_authentication_only
+    }
+  }
+```
   
 Terraform Misc 
 -------------
