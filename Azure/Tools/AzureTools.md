@@ -17,3 +17,18 @@ Azure Tools
 * azcopy is one more tool for copy blobs between different storage accotuns of local server
   - Ref - https://www.thomasmaurer.ch/2019/05/how-to-install-azcopy-for-azure-storage/ 
 
+* Adding different tenant Subnets for `Enabled from selected virtual networks and IP addresses`
+ - While authorizing other tenants to connect hte resources in your own subnet. You need to allow other tenant subnets access. This is not feasible on Azure due to missing read access. However AZ Cmdlets can be used get this done.
+ - Ref: https://learn.microsoft.com/en-us/powershell/module/az.storage/add-azstorageaccountnetworkrule?view=azps-12.1.0
+ - Sample :
+```
+az login
+Connect-AzAccount
+az account show --output table
+az account list --output table
+Set-AzContext -SubscriptionId asfdasf-saf-dsaf-dsaf-adsfdsafdsf -TenantId  dsafsdf-af-fdsa-asf-sadfdsafdsfds
+Get-AzStorageAccountNetworkRuleSet -ResourceGroupName rg-fdsa-001 -Name datalakname
+Get-AzStorageAccountNetworkRuleSet -ResourceGroupName rg-myresourcegroup -Name NyStorageName
+# Last VNET is the 3rd party VNET ID
+Add-AzStorageAccountNetworkRule -ResourceGroupName rg-myresourcegroup -Name NyStorageName -VirtualNetworkResourceId  "/subscriptions/asfdsfd-sadf-safdf-dsaf-safdsf/resourceGroups/prod-e..."
+```
