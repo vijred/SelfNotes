@@ -18,9 +18,9 @@ Azure Tools
   - Ref - https://www.thomasmaurer.ch/2019/05/how-to-install-azcopy-for-azure-storage/ 
 
 * Adding different tenant Subnets for `Enabled from selected virtual networks and IP addresses`
- - While authorizing other tenants to connect hte resources in your own subnet. You need to allow other tenant subnets access. This is not feasible on Azure due to missing read access. However AZ Cmdlets can be used get this done.
- - Ref: https://learn.microsoft.com/en-us/powershell/module/az.storage/add-azstorageaccountnetworkrule?view=azps-12.1.0
- - Sample :
+  - While authorizing other tenants to connect hte resources in your own subnet. You need to allow other tenant subnets access. This is not feasible on Azure due to missing read access. However AZ Cmdlets can be used get this done.
+  - Ref: https://learn.microsoft.com/en-us/powershell/module/az.storage/add-azstorageaccountnetworkrule?view=azps-12.1.0
+  - Sample :
 ```
 az login
 Connect-AzAccount
