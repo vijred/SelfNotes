@@ -308,5 +308,19 @@ table_url = f"/mnt/xyzlocation/config.share#Sharename.SchemaName.TableName"
 delta_sharing.load_as_pandas(table_url, limit=10)
 ```
 
+* How to create a table with reference to external location -
+```
+%sql
+CREATE TABLE myftp.tableName
+USING parquet
+LOCATION "/mnt/myftp/path/1212/sampleFilename.parquet"; 
+```
+
+* How to alter the external path of an external table
+```
+%sql
+ALTER TABLE myftp.tableName
+SET LOCATION "/mnt/myftp/path2//mynewfilename.parquet"; 
+```
 
 * Security best practices - While sharing data with external users, I strongly encourage using security best practices outlined at https://www.databricks.com/blog/2022/08/01/security-best-practices-for-delta-sharing.html. 
