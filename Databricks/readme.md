@@ -230,6 +230,14 @@ spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account>.dfs.co
 
 * How to create a scope in Databricks Workspace? - https://databricks-instance-name#secrets/createScope
   * Ref: https://learn.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes
+
+* workaround to see the value of a secter (security string)
+```
+keyvalue = dbutils.secrets.get(scope = "myscopename", key = "testname")
+
+for char in keyvalue:
+    print(char, end=" ")
+```
  
 * How to list all secret scopes? dbutils.secrets.listScopes() 
 
