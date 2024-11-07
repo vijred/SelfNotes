@@ -332,3 +332,28 @@ SET LOCATION "/mnt/myftp/path2//mynewfilename.parquet";
 ```
 
 * Security best practices - While sharing data with external users, I strongly encourage using security best practices outlined at https://www.databricks.com/blog/2022/08/01/security-best-practices-for-delta-sharing.html. 
+
+
+Unity Catalog -
+----------------
+
+* Best way to check user access on Unity Catalog tables
+```
+%sql
+SELECT DISTINCT grantee, table_catalog, privilege_type
+FROM system.information_schema.table_privileges
+where grantee = 'sbi_server_admins'
+and inherited_from = 'CATALOG'
+
+%sql
+SELECT distinct grantee, privilege_type, table_catalog, table_schema
+FROM system.information_schema.table_privileges
+where grantee = 'sbi_server_admins'
+and inherited_from = 'SCHEMA'
+
+%sql
+SELECT distinct grantee, privilege_type, table_catalog, table_schema, table_name
+FROM system.information_schema.table_privileges
+where grantee = 'sbi_server_admins'
+and inherited_from = 'NONE'
+```
