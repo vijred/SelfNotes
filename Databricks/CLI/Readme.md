@@ -32,6 +32,7 @@ jobs-api-version = 2.0
 * One of the best options is to use API calls using the CLI Command, https://docs.databricks.com/api/azure/workspace/serviceprincipals/get is list of APIs, `databricks api get /api/2.0/preview/scim/v2/ServicePrincipals` is example API call to list all Service Principals.
 * How to get help and use different commands - https://learn.microsoft.com/en-us/azure/databricks/dev-tools/cli/usage?source=recommendations
 * troubleshooting CLI - https://learn.microsoft.com/en-us/azure/databricks/dev-tools/cli/troubleshooting 
+* List of configured profiles - `databricks auth profiles`
   
 * List os secret scopes - `databricks secrets list-scopes`
 * Databricks CLI Commands - `https://docs.databricks.com/en/dev-tools/cli/commands.html`
