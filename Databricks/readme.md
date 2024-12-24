@@ -130,6 +130,7 @@ dbutils.notebook.run("vj_test_notebook1", 60, {"myargument": "Value_Passed", "ar
 
 * Databricks resources can be managed and viewed using CLI, CLI needs to be installed for the same. Ref: https://docs.databricks.com/dev-tools/cli/index.html 
   * Once the profile is configured, the detals will be stored in a hidden file. You can see the profile infomration using the powershell command - `Get-Content ~/.databrickscfg`
+  * Refer to Databricks/CLI/Readme.md for more infomration.
 
 * Test MSSQL connection from Databricks 
 ```
@@ -240,19 +241,6 @@ for char in keyvalue:
 ```
  
 * How to list all secret scopes? dbutils.secrets.listScopes() 
-
-* Tell me about Databricks CLI
-  * Databricks Command-Line Interface is easy to use from Terminal  command prompt.
-  * Databricks CLI needs to be installed on system and configured for given workspace
-  * cli installation and configuration instructions can be found @ https://learn.microsoft.com/en-us/azure/databricks/dev-tools/cli/
-  * How to view commands (help) - `databricks configure --help` or `databricks --help`
-  * Default location of configuration file in windows - `%USERPROFILE%\.databrickscfg` (`~/.databrickscfg` in linux)
-  * Sample command to give Scope Read access to a Databricks Group
-  ```
-  databricks groups list
-  databricks secrets list-scopes
-  databricks secrets put-acl --scope myScopeName --principal MyDatabricksGroupName --permission READ
-  ```
 
 * Is there any ODBC Driver for Databricks
   - Yes, Download from - https://www.databricks.com/spark/odbc-drivers-download 
