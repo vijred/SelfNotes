@@ -19,3 +19,5 @@ winget install Databricks.DatabricksCLI
 * How to run CLI from a workspace - Ref: https://docs.databricks.com/en/dev-tools/cli/install.html
   * Make sure to enable Web terminal from settings -> Compute; Need to run from a personal compute with spark vesion 15.1 or more.
   * Sample command to test - `databricks current-user me`
+* Databricks resources can be managed and viewed using CLI, CLI needs to be installed for the same. Ref: https://docs.databricks.com/dev-tools/cli/index.html
+  * Once the profile is configured, the detals will be stored in a hidden file. You can see the profile infomration using the powershell command - Get-Content ~/.databrickscfg
