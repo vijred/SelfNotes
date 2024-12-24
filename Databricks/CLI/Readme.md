@@ -3,13 +3,35 @@
 Databricks CLI 
 ==============
 
+* There is major update on CLI Version, starting v0.205 has major upgrades. https://learn.microsoft.com/en-us/azure/databricks/dev-tools/cli/commands?source=recommendations is a gret place to start for list of commands and their grouping. 
+
 * Reference to install Databricks CLI - https://docs.databricks.com/en/dev-tools/cli/install.html#cli-workspace
 ```
+# Uninstall old version
+pip uninstall databricks-cli
+
+# Install latest version 
 winget search databricks
 winget install Databricks.DatabricksCLI
 ```
+* Different Authentication methods - https://learn.microsoft.com/en-us/azure/databricks/dev-tools/cli/auth-commands. Following sample is OAuth authentication and token authentication
+```
+[env_workspace_account_profilename]
+host = https://adb-5432432434324324324144343141432.22.azuredatabricks.net/
+account_id = 483434343434343434343
+client_id = 43434334-4343434-3434-fdfx-dsdsf34vewfew328uy8hkjh8uh8
+client_secret = dosef039ldskjldjolkjfkjfodkjfodsjfgfg
 
+[n0]
+host = https://adb-dsafdsafdsfdsafdsafdsafds.1.azuredatabricks.net
+username = token
+password = dapiddsfdsafdfdsfds0dsf-ds-fsfdsfds-3
+jobs-api-version = 2.0
+```
 * Check version - `databricks -v`
+* One of the best options is to use API calls using the CLI Command, https://docs.databricks.com/api/azure/workspace/serviceprincipals/get is list of APIs, `databricks api get /api/2.0/preview/scim/v2/ServicePrincipals` is example API call to list all Service Principals.
+* How to get help and use different commands - https://learn.microsoft.com/en-us/azure/databricks/dev-tools/cli/usage?source=recommendations
+  
 * List os secret scopes - `databricks secrets list-scopes`
 * Databricks CLI Commands - `https://docs.databricks.com/en/dev-tools/cli/commands.html`
 * How to creat a scope for a different workspace, example to create a scope for workspace - `databricks configure --profile n46k`
