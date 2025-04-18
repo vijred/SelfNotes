@@ -53,3 +53,7 @@ Connect-AzAccount -ServicePrincipal -TenantId $TenantId -Credential $Credential 
 $sub = Get-AzSubscription -SubscriptionId $subscriptionId 
 Set-AzContext -Subscription $sub ## Switch to the required subscription 
 ```
+
+* Good reference for Authentication for AZCopy method
+https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-authorize-azure-active-directory#authorize-by-using-a-system-wide-managed-identity
+
