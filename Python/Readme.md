@@ -3,6 +3,7 @@ NOTE: exploreparquetfile.py can be referenced to read data from parquet file or 
 
 Python FAQ
 ----------
+* Note: https://www.hackerrank.com/ is one of the many tools that helps you learn and evaluate your python skills on various topics -
 * How to address certificate issues with module installations
     -   Use trusted hosts to address the issue - `--trusted-host pypi.org --trusted-host files.pythonhosted.org`
     -   example: `pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org  --pre azure-cosmos`
