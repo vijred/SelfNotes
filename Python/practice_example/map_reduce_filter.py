@@ -24,9 +24,17 @@ print(student_result)
 print(list(map(lambda x: f"{x.name} passed" if x.score > 0.2 else f"{x.name} passed" ,students)))
 
 
-# Challenge
-# Use map to mulltiply all these numbers by 5
 
+#map 
 numbers = [1,2,3,4,5]
-
 print(list(map( lambda x:x*5 ,numbers)))
+
+# Reduce 
+numbers = [1,2,3,4,5]
+from functools import reduce
+print(reduce( lambda total, inumber: inumber * total  ,numbers, 1))
+print(reduce( lambda total, inumber: inumber * total  ,numbers))
+
+# Filter 
+numbers = [1,2,3,4,5]
+print(list(filter(lambda x: x%2 == 0, numbers)))
