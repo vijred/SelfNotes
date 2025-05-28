@@ -57,3 +57,13 @@ Set-AzContext -Subscription $sub ## Switch to the required subscription
 * Good reference for Authentication for AZCopy method
 https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-authorize-azure-active-directory#authorize-by-using-a-system-wide-managed-identity
 
+* Cost Management -
+    * Workbook reference: https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview)
+    * Microsoft Tool, Well Architecture Review
+The tool is Microsoft provided Architecture assessment. This has an option to customize the assessment on a given area. We will review the assessment focused on Cost Optimization.  
+Where is the tool: https://aka.ms/architecture/review -> https://learn.microsoft.com/en-us/assessments/azure-architecture-review/  (Login with Paychex credentials) 
+* How to use the tool: 
+Select only `Core Well-Architected Review` for the question What workload type do you want to evaluate. 
+Select `Cost` for the question What pillars would you like to evaluate? 
+Complete the assessment for cost recommendations
+* How to analyze the results - Open Completed Assessments at https://learn.microsoft.com/en-us/assessments/azure-architecture-review/
