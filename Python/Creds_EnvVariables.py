@@ -1,6 +1,6 @@
 # Credentails and Environment variables in Python
 # This sample can be used in Databricks as well - 
-
+# Note, .env file needs to be on one of the folders or parent folders. If you execure the code from parent/folder1/p2/p3/subfolder/filename.py, .env file needs to be in subfolder or p3, .. parent folder!
 
 import os
 from azure.keyvault.secrets import SecretClient
