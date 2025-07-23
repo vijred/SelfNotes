@@ -127,7 +127,13 @@ dbutils.widgets.removeAll()
 # Sample code to call the notebook by passing the argument
 dbutils.notebook.run("vj_test_notebook1", 60, {"myargument": "Value_Passed", "argument2": "data2"})
 ```
-
+* How to install a library within notebook -
+```
+  # below example to install hyperopt 
+  %pip install hyperopt
+  # Make sure to restart python kernal
+  %restart_python
+```
 * Databricks resources can be managed and viewed using CLI, CLI needs to be installed for the same. Ref: https://docs.databricks.com/dev-tools/cli/index.html 
   * Once the profile is configured, the detals will be stored in a hidden file. You can see the profile infomration using the powershell command - `Get-Content ~/.databrickscfg`
   * Refer to Databricks/CLI/Readme.md for more infomration.
