@@ -245,6 +245,10 @@ keyvalue = dbutils.secrets.get(scope = "myscopename", key = "testname")
 for char in keyvalue:
     print(char, end=" ")
 ```
+* List the keys in the key vault
+```
+dbutils.secrets.list('myscopename')
+```
  
 * How to list all secret scopes? dbutils.secrets.listScopes() 
 
