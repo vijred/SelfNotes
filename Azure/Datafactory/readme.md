@@ -41,5 +41,7 @@ New-AzRoleAssignment `
  * Howto pull data from Sharepoint into a desiation -
    * https://learn.microsoft.com/en-us/azure/data-factory/connector-sharepoint-online-list?tabs=data-factory#linked-service-properties works well! https://www.youtube.com/watch?v=FFfNu3cI-uw is a good example but has some errors, use microsoft documentation
    * Do not use the Password directly while building the strings. Use http method to pull secret from Keyvault using system Authentication, use the output in secured way while connecting.
-   * eXAMPLE: <img width="714" height="557" alt="image" src="https://github.com/user-attachments/assets/b61998c8-89b7-42ee-a80e-6538cb519b84" />
+   * Example: <img width="1403" height="1097" alt="image" src="https://github.com/user-attachments/assets/fcd3fcba-c762-4b69-978b-2cc9cc7d32a0" />
+
+   
 
