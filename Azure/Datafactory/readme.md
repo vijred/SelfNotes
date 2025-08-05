@@ -36,4 +36,10 @@ New-AzRoleAssignment `
 
 * ADF, what if you publish a componnet (Managed Private Endpoint) in live Mode? Assume the problem is to get the componnet information into ARM Template.
   * There is no easy way to bring this into Arm Template (Default in adf_publish branch). Fix is to update publish_config.json file in collaboration branch, update publishBranch value to new name like `"publishBranch":"adf_publish2"`. Now, refresh ADF Workspace and publish. This will publish ARM Templates into New Branch. Delete the old branch `adf_publish`. Now change publish_config.json to adf_publish. Now refresh Workspace and publish again that updates all components to ARM Template that can be used to deploy into other environments.
- 
+
+
+ * Howto pull data from Sharepoint into a desiation -
+   * https://learn.microsoft.com/en-us/azure/data-factory/connector-sharepoint-online-list?tabs=data-factory#linked-service-properties works well! https://www.youtube.com/watch?v=FFfNu3cI-uw is a good example but has some errors, use microsoft documentation
+   * Do not use the Password directly while building the strings. Use http method to pull secret from Keyvault using system Authentication, use the output in secured way while connecting.
+   * eXAMPLE: <img width="714" height="557" alt="image" src="https://github.com/user-attachments/assets/b61998c8-89b7-42ee-a80e-6538cb519b84" />
+
