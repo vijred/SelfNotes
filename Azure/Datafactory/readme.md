@@ -42,6 +42,9 @@ New-AzRoleAssignment `
    * https://learn.microsoft.com/en-us/azure/data-factory/connector-sharepoint-online-list?tabs=data-factory#linked-service-properties works well! https://www.youtube.com/watch?v=FFfNu3cI-uw is a good example but has some errors, use microsoft documentation
    * Do not use the Password directly while building the strings. Use http method to pull secret from Keyvault using system Authentication, use the output in secured way while connecting.
    * Example: <img width="1403" height="1097" alt="image" src="https://github.com/user-attachments/assets/fcd3fcba-c762-4b69-978b-2cc9cc7d32a0" />
+   * Make sure to secure the output/input so the password will not be logged into error logs
+     * <img width="471" height="559" alt="image" src="https://github.com/user-attachments/assets/f2d7e4f0-ec2f-404b-942d-771a4f430f18" />
+ 
 
    
 
