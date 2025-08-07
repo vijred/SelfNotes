@@ -55,13 +55,34 @@ def exec_postgre_sql_to_df(database, sqlstatement):
 
 # Sample execution of SQL Statemetns 
 # Execute the query and load results into a DataFrame
-df = exec_postgre_sql_to_df("postgres",
+df = exec_postgre_sql_to_df("mydbname",
 f"""
 SELECT datname 
 FROM pg_database 
 WHERE datistemplate = false;
 """)
-
 # Display the DataFrame
-display(df)
+display(df.astype(str))
 
+
+
+# Execute the query and load results into a DataFrame
+df = exec_postgre_sql_to_df("mydbname",
+f"""
+SELECT column_name, data_type 
+FROM information_schema.columns 
+WHERE table_name = 'mytablename';
+""")
+# Display the DataFrame
+display(df.astype(str))
+
+
+# Mostly user tables
+df = exec_postgre_sql_to_df("postgres",
+f"""
+SELECT *
+FROM information_schema.tables 
+WHERE table_schema = 'public';
+""")
+# Display the DataFrame
+display(df.astype(str))
