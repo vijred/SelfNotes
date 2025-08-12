@@ -167,4 +167,5 @@ chown username test.pem
     - `tar -xf xyz_filename_0.0.6.tar`
 
 * How to check server to server connection on a given port
-  - `curl -I https://myservername.mydomainname.COM:1433` - This command can be used to pull only header from given server on the port 1433. This is similar to `Test-NetConnection myservername.mydomainname.COM -port 443` on Powershell
+  - `curl -I myservername.mydomainname.COM:1433` - This command can be used to pull only header from given server on the port 1433. This is similar to `Test-NetConnection myservername.mydomainname.COM -port 443` on Powershell
+
