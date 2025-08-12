@@ -58,3 +58,10 @@ jobs-api-version = 2.0
   databricks secrets list-scopes
   databricks secrets put-acl --scope myScopeName --principal MyDatabricksGroupName --permission READ
   ```
+
+* Allowing only given IPs to access DBX workspace is trickey, following is the sample -
+  ```
+  databricks workspace-conf set-status --json "{\"enableIpAccessLists\": \"true\"}"}"
+  databricks ip-access-lists create --json "{\"label\": \"office\",\"list_type\": \"ALLOW\", \"ip_addresses\": [\"122.121.122.122/32\",\"212.21.12.12/32\"]}"
+  ```
+
