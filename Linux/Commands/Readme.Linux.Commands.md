@@ -168,4 +168,6 @@ chown username test.pem
 
 * How to check server to server connection on a given port
   - `curl -I myservername.mydomainname.COM:1433` - This command can be used to pull only header from given server on the port 1433. This is similar to `Test-NetConnection myservername.mydomainname.COM -port 443` on Powershell
+  - - `curl -I myservername.mydomainname.COM:1433 -w "Connect time: %{time_connect}s\n" -o /dev/null -s` - to include connection time
+
 
