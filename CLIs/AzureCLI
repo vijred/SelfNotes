@@ -1,0 +1,3 @@
+# One of the best ways to install Azure CLI on a machine (using Powershell)
+Invoke-WebRequest -Uri https://aka.ms/installazurecliwindowsx64 -OutFile .\AzureCLI64.msi
+Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI64.msi /quiet'
