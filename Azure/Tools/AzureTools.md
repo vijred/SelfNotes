@@ -32,3 +32,7 @@ Get-AzStorageAccountNetworkRuleSet -ResourceGroupName rg-myresourcegroup -Name N
 # Last VNET is the 3rd party VNET ID
 Add-AzStorageAccountNetworkRule -ResourceGroupName rg-myresourcegroup -Name NyStorageName -VirtualNetworkResourceId  "/subscriptions/asfdsfd-sadf-safdf-dsaf-safdsf/resourceGroups/prod-e..."
 ```
+
+
+* What is the best way to removely login into a VM which is in a Subnet - BASTION
+  * Hopw to login to a remove Linux server created in Azure - https://learn.microsoft.com/en-us/azure/virtual-machines/linux/use-remote-desktop?tabs=azure-cli 
