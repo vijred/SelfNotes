@@ -23,7 +23,7 @@ spark.conf.set("spark.sql.join.preferSortMergeJoin", "true")
 Ref: 
 * https://blog.dataengineerthings.org/apache-spark-memory-management-fb677967246f 
 * https://www.youtube.com/watch?v=sXL1qgrPysg
-* 
+* Research options - https://blog.devgenius.io/debugging-a-memory-leak-in-spark-application-22140630877d 
 
 
 
