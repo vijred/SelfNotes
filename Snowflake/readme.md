@@ -29,3 +29,17 @@ def main(session):
     return result
  ```
 
+
+How to view Private link ID from Network Rule in Snowflake.
+```
+SELECT
+    PARSED_JSON:"endpointId"::STRING AS ENDPOINT_ID,
+    PARSED_JSON:"endpointIdType"::STRING AS ENDPOINT_TYPE,
+    PARSED_JSON:"linkIdentifier"::STRING AS PRIVATE_LINK_IDENTIFIER,
+FROM (
+    SELECT
+        PARSE_JSON(VALUE) AS PARSED_JSON
+    FROM
+        TABLE(FLATTEN(INPUT => PARSE_JSON(SYSTEM$GET_PRIVATELINK_AUTHORIZED_ENDPOINTS())))
+); 
+```
