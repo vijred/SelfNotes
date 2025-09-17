@@ -111,3 +111,10 @@ pip freeze > requirements.txt
 pip install -r requirements.txt
 ```
 
+* This is same in MacOS as well, following commands worked in zsh
+```
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r databricks_app/requirements.txt
+```
+
