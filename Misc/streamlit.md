@@ -30,6 +30,7 @@ Yes, Streamlit apps can be deployed to the cloud:
 - Main Docs: [https://docs.streamlit.io/](https://docs.streamlit.io/)  
 - Getting Started: [https://docs.streamlit.io/get-started](https://docs.streamlit.io/get-started)  
 - Deployment: [https://docs.streamlit.io/streamlit-community-cloud](https://docs.streamlit.io/streamlit-community-cloud)  
+- 30 days of streamlit: [30 days streamlit reference](https://30days.streamlit.app/?challenge=Day5)
 
 ---
 
