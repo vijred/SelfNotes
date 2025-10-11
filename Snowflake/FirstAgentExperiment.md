@@ -4,6 +4,7 @@
 * Github repo for the code: https://www.snowflake.com/en/lp/essential-apps-ai-data-products/?utm_source=on24&utm_medium=referral&utm_campaign=on24-resource
 * Snowflake inteelligence documentation: https://docs.snowflake.com/user-guide/snowflake-cortex/snowflake-intelligence 
 
+* App: https://quickstarts.snowflake.com/guide/getting_started_with_native_apps/index.html#0
 
 
 ```
