@@ -170,4 +170,7 @@ chown username test.pem
   - `curl -I myservername.mydomainname.COM:1433` - This command can be used to pull only header from given server on the port 1433. This is similar to `Test-NetConnection myservername.mydomainname.COM -port 443` on Powershell
   - - `curl -I myservername.mydomainname.COM:1433 -w "Connect time: %{time_connect}s\n" -o /dev/null -s` - to include connection time
 
+* List Network Connections - `netstat -nlp`
+* How to install net tools - `sudo dnf install net-tools`
+* How to reset connections to known hosts - `(Get-Content C:\Users\vkundana\.ssh\known_hosts | Where-Object {$_ -notmatch '^10\.72\.65\.69\b'}) | Set-Content C:\Users\vkundana\.ssh\known_hosts`
 
