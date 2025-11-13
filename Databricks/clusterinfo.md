@@ -24,3 +24,18 @@ spark.conf.get("spark.databricks.clusterUsageTags.clusterName")
 spark.conf.get("spark.databricks.clusterUsageTags.clusterId")
 ```
 
+* Simple example to configure init script for a clusetr - 
+```
+#!/bin/bash
+pip install webexteamssdk
+
+echo "webexteamssdk library installation complete."
+```
+* How to validate if the cluster libraries are installed -
+```
+try:
+    import webexteamssdk
+    print("webexteamssdk library is successfully installed.")
+except ImportError:
+    print("webexteamssdk library is NOT installed.")
+```
