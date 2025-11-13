@@ -1,6 +1,7 @@
-Windows Server Netowrk utils
+Netowrk utils
 ============================
 
+## Windows Server Netowrk utils
 * First reference to commonly used commands 
     - https://vijredblog.wordpress.com/2014/03/12/network-command-utilities-ipconfig-arp-route-ping-tracert-netstat-nslookup/ 
 
@@ -19,3 +20,6 @@ Windows Server Netowrk utils
     - One you see the error message pop up, enter the following command to stop the network trace- `Netsh trace stop`
     - Navigate to C drive on your machine and share the mmagent.etl for analysis with required team
 
+
+## Lunux commands
+https://github.com/vijred/SelfNotes/blob/2e92eaca9d952e0431babfab1fcf9b6c066befb7/Linux/Commands/Readme.Linux.Commands.md#network-related-commands
