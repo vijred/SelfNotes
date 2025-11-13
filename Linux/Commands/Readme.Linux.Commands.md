@@ -125,6 +125,10 @@ powershell
 Network related commands
 --------------
 * IP Configuration command - `ifconfig`
+* `nc servername portnumber`
+* `nc -vz servername portnumber` includes reverse lookup
+* `nslookup Servername` for IP Resolution
+* `dig servername` research on DNS issues
 
 How to update server name (At least a VM Name)
 --------------
@@ -173,4 +177,5 @@ chown username test.pem
 * List Network Connections - `netstat -nlp`
 * How to install net tools - `sudo dnf install net-tools`
 * How to reset connections to known hosts - `(Get-Content C:\Users\vkundana\.ssh\known_hosts | Where-Object {$_ -notmatch '^10\.72\.65\.69\b'}) | Set-Content C:\Users\vkundana\.ssh\known_hosts`
+
 
