@@ -15,6 +15,8 @@ Databricks
   * Workflows 
   * Clusters 
 
+* Cluster Info: Refer to https://github.com/vijred/SelfNotes/blob/master/Databricks/clusterinfo.md for Cluster specific information
+
 ## scala example 
 * Example to display table results 
 ```
@@ -83,16 +85,7 @@ SELECT lat.col1, *
 from table where 
 col3 between ${var.clientcountchangepercentlow} AND ${var.clientcountchangepercenthigh}
 ```
-* How to use Cluster Tags in notebook
-```
-import json
-all_tags = {}
-for tag in json.loads(spark.conf.get("spark.databricks.clusterUsageTags.clusterAllTags")):
-  all_tags[tag['key']] = tag['value']
 
-notebookenv = all_tags.get('my_environment')
-print(notebookenv)
-```
 * How to pass and access variables 
 ```
 # Pass variables (argument, and argument2 with values data and data2
@@ -170,11 +163,6 @@ dataSourceClientCollection = spark.read.format("jdbc") \
 
 ```
 
-* How to get clusterName and clisterId in notebook
-```
-spark.conf.get("spark.databricks.clusterUsageTags.clusterName")
-spark.conf.get("spark.databricks.clusterUsageTags.clusterId")
-```
 
 * Do I have powershell modeule for databricks? - Yes, https://github.com/gbrueckl/Databricks.API.PowerShell/blob/master/README.md 
 
