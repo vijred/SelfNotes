@@ -9,21 +9,17 @@ All examples use dummy domains, servers, and index names.
 
 -   [Indexing and Regex Manipulation](#indexing-and-regex-manipulation)
 -   [SQLException Timechart](#sqlexception-timechart)
--   [Statistics and Time
-    Manipulation](#statistics-and-time-manipulation)
+-   [Statistics and Time Manipulation](#statistics-and-time-manipulation)
 -   [XY Series and Lookup Tables](#xy-series-and-lookup-tables)
--   [Conditions, Sorting, and
-    Deduplication](#conditions-sorting-and-deduplication)
+-   [Conditions, Sorting, and Deduplication](#conditions-sorting-and-deduplication)
 -   [Timechart and Eval Examples](#timechart-and-eval-examples)
 -   [Regex and Replace](#regex-and-replace)
 -   [Miscellaneous Commands](#miscellaneous-commands)
 -   [Using AddInfo and Lookups](#using-addinfo-and-lookups)
 -   [Comments and Index Listings](#comments-and-index-listings)
--   [Search by Multiple Fields --
-    Coalesce](#search-by-multiple-fields--coalesce)
--   [Additional Functions and
-    Commands](#additional-functions-and-commands)
-
+-   [Search by Multiple Fields -- Coalesce](#search-by-multiple-fields--coalesce)
+-   [Additional Functions and mmands](#additional-functions-and-commands)
+-   [Misc](#Msc)
 ------------------------------------------------------------------------
 
 ## Indexing and Regex Manipulation
@@ -234,7 +230,12 @@ index=analytics body.records.operationName="Quota Utilization"
 ```
 
 ------------------------------------------------------------------------
+## Misc
 
+### How to view the source file 
+Few of the events have an option to view the source. Look for Event Actions -> Shouw Source to see the sequence of the envets that lead to the search results from actual file.
+
+------------------------------------------------------------------------
 This cheat sheet provides commonly used Splunk patterns to speed up
 troubleshooting, data exploration, and dashboard development.\
 Replace dummy values as needed for your environment.
