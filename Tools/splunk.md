@@ -19,7 +19,7 @@ All examples use dummy domains, servers, and index names.
 -   [Comments and Index Listings](#comments-and-index-listings)
 -   [Search by Multiple Fields -- Coalesce](#search-by-multiple-fields--coalesce)
 -   [Additional Functions and mmands](#additional-functions-and-commands)
--   [Misc](#Msc)
+-   [Misc](#misc)
 ------------------------------------------------------------------------
 
 ## Indexing and Regex Manipulation
