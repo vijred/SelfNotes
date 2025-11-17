@@ -27,6 +27,11 @@ python -c "import sys; print(sys.executable)"
 python -m site
 ```
 
+* List all versions of Python installed
+```
+py -0
+```
+
 ## 📦 Checking Installed Packages
 
 * Show details for a specific package:
