@@ -32,6 +32,9 @@ python -m site
 py -0
 ```
 
+* Show the location of Certificate used by Python - `python -m certifi`; Appent required certificates to this file!
+
+
 ## 📦 Checking Installed Packages
 
 * Show details for a specific package:
