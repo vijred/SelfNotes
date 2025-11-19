@@ -177,5 +177,6 @@ chown username test.pem
 * List Network Connections - `netstat -nlp`
 * How to install net tools - `sudo dnf install net-tools`
 * How to reset connections to known hosts - `(Get-Content C:\Users\vkundana\.ssh\known_hosts | Where-Object {$_ -notmatch '^10\.72\.65\.69\b'}) | Set-Content C:\Users\vkundana\.ssh\known_hosts`
+* How to view the certificate details - `openssl x509 -in my-ca.crt -noout -text`
 
 
