@@ -104,6 +104,15 @@ display(joined_df_filter_col.selectExpr("w_id", "upper(name) as big_name", "lowe
   * How to access Colab - https://colab.google/
   * How to transfer files and understand file structure - https://neptune.ai/blog/google-colab-dealing-with-files 
 
+* One of the best options to validate short code in Command lin
+```
+python3 - <<'EOF'
+import requests
+r = requests.get("https://your-langsmith-domain", verify=True, timeout=10)
+print(r.status_code)
+EOF
+```
+
 -----------------------
 
 * Documentation
