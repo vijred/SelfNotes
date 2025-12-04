@@ -113,6 +113,24 @@ print(r.status_code)
 EOF
 ```
 
+* Sample to valdiate network connectivity
+```
+import socket
+
+def check_internet_connection(host="google.com", port=443, timeout=3):
+    try:
+        socket.setdefaulttimeout(timeout)
+        socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect((host, port))
+        return True
+    except socket.error as ex:
+        return False
+
+if check_internet_connection():
+    print("Success")
+else:
+    print("Fail.")
+```  
+
 -----------------------
 
 * Documentation
