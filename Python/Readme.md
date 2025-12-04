@@ -129,7 +129,10 @@ if check_internet_connection():
     print("Success")
 else:
     print("Fail.")
-```  
+```
+
+* What is the magic command in Databricks and Jupytor notebook
+** `%sh` is the magic command in Databricks and `%%bash` is for Jupytor notebook. Example, ` %%bash    hostname -I`
 
 -----------------------
 
