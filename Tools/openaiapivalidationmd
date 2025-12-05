@@ -52,8 +52,6 @@ print(response.choices[0].message.content)
 
 .env file sample 
 ```
-
-# # test for tim haack
 api_base = "https://myopenaideploymentinazurevj.openai.azure.com/"
 api_type = "azure"
 api_version = "2024-12-01-preview" # Ensure to use the correct version based on Azure deployment
