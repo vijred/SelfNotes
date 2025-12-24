@@ -24,3 +24,13 @@ myFile.write.mode("append").format("delta").saveAsTable("myTableName")
 ALTER TABLE <table_name> SET TBLPROPERTIES (delta.enableDeletionVectors=false)
 REORG TABLE <table_name> APPLY(PURGE)
 ```
+
+* SQL, how to write a qery on an aray - Example, Returns rows where at least one element in an array column matches any value in a target list
+```
+SELECT *
+FROM your_table
+WHERE arrays_overlap(
+  to_email_list, 
+  array('email1@domain.com', 'email2@domain.com', 'email3@domain.com')
+)
+```
