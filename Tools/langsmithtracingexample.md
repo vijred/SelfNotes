@@ -55,14 +55,14 @@ deployment_name="gpt-5-chat"
 
 Usage of Langgraph from postgresql server using SQL query 
 ```
-        SELECT date, count(distinct thread_id) as distinct_thread_ids, count(thread_id) as Queries, count(distinct user_id) as distinct_users
-        FROM (
-            SELECT thread_id, 
-                  (checkpoint->>'ts')::date as date, metadata->'user_id' as user_id
-            FROM public.checkpoints 
-            where metadata->>'source' = 'input'
-        ) AS subquery
-        group by date
-        ORDER BY date DESC
-        LIMIT 1000
+SELECT date, count(distinct thread_id) as distinct_thread_ids, count(thread_id) as Queries, count(distinct user_id) as distinct_users
+FROM (
+    SELECT thread_id, 
+          (checkpoint->>'ts')::date as date, metadata->'user_id' as user_id
+    FROM public.checkpoints 
+    where metadata->>'source' = 'input'
+) AS subquery
+group by date
+ORDER BY date DESC
+LIMIT 1000
 ```
