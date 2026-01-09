@@ -9,5 +9,5 @@ To view the actual JWT value in a browser:
 - Find the **Authorization** header and copy the JWT value
 
 To decode and troubleshoot a JWT:
-- Paste the token into https://jwt.ms/
+- Paste the token into https://jwt.ms/ (Simple Powershell code to the see the details - https://github.com/vijred/SelfNotes/blob/master/Azure/Tools/SecurityTools.md#user-assigned-managed-identities)
 - Review the decoded header and claims (issuer, audience, expiry, scopes, etc.) to understand or debug authentication issues
