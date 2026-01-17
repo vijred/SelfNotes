@@ -39,6 +39,14 @@ prod_feature_store = Chroma.from_documents(
     embedding=embedding
 )
 
+## Persistence vs in-memory - Above method is in-memory, below is the command for Persistence
+# prod_feature_store = Chroma.from_documents(
+#     documents=splits,
+#     embedding=embedding,
+#     persist_directory="./chroma_laptops"
+# )
+
+
 get_product_features = create_retriever_tool(
     prod_feature_store.as_retriever(search_kwargs={"k": 1}),
     name="Get_Product_Features",
