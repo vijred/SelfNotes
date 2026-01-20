@@ -1,6 +1,7 @@
 # Using HTTPS Proxy via Environment Variables
 
 **Proxy (high-level):** A network intermediary that routes, filters, and audits outbound traffic between clients and external services.
+** Command to test proxy settings (Powershell - `netsh winhttp show proxy`
 
 ## Windows (PowerShell)
 
