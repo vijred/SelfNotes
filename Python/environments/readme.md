@@ -1,3 +1,32 @@
+
+## Quick reference for virtual environments -
+```
+## How to activate venv 
+.\myenv\Scripts\Activate.ps1
+
+## How to exit venv 
+deactivate
+
+## How to enable venv 
+py -m venv .myenv
+.\myenv\Scripts\Activate.ps1
+pip install -r requirements.txt
+
+#### Sample to keep the secrets in .env and use it in the code
+import os
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv())
+
+## Example of assigning variables using environment variables from .env file 
+## Sample .env file 
+#snow_user="myusername"
+#snow_pwd="myprwd"
+
+user = os.environ["snow_user"] 
+pwd = os.environ["snow_pwd"] 
+```
+
+
 How to create a virtual environment - 
 `py -m venv mytestenv`
 
@@ -8,8 +37,6 @@ Windows (Powershell) - `.\myenv\Scripts\Activate.ps1` (If necessary - `Set-Execu
 
 How to exit virtual environment - 
 `deactivate`
-
-
 
 
 # Python venv & Package Cheat Sheet
