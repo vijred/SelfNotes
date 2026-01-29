@@ -12,6 +12,7 @@ Docker
 *   Start Stopped Container - `docker start <container_id>`
 *   Remove Container - `docker rm <container_id>` , on powershell, remove using this command - `docker rm -f $(docker ps -aq)`
 *   Remove Image - `docker rmi my-python-app`
+*   Docket context list - `docker context ls`; how to configure the default version - `docker context use desktop-linux`
 *   Sample Docker file while building the image
 ```
 # Use an official Python runtime as a parent image
