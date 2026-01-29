@@ -10,7 +10,7 @@ Docker
 *   List All Containers (including stopped) - `docker ps -a`
 *   Stop Container - `docker stop <container_id>`
 *   Start Stopped Container - `docker start <container_id>`
-*   Remove Container - `docker rm <container_id>`
+*   Remove Container - `docker rm <container_id>` , on powershell, remove using this command - `docker rm -f $(docker ps -aq)`
 *   Remove Image - `docker rmi my-python-app`
 *   Sample Docker file while building the image
 ```
