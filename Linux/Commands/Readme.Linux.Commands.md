@@ -180,3 +180,4 @@ chown username test.pem
 * How to view the certificate details - `openssl x509 -in my-ca.crt -noout -text`
 
 
+
