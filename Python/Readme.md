@@ -136,6 +136,31 @@ else:
 
 -----------------------
 
+
+* Decorator example
+```
+def decorator_one(func):
+    def wrapper(*args, **kwargs):
+        print("Decorator One: Before function call")
+        func(*args, **kwargs)
+        print("Decorator One: After function call")
+    return wrapper
+
+def decorator_two(func):
+    def wrapper(*args, **kwargs):
+        print("Decorator Two: Before function call")
+        func(*args, **kwargs)
+        print("Decorator Two: After function call")
+    return wrapper
+
+@decorator_one
+@decorator_two
+def say_hello(name):
+    print(f"Hello, {name} !")
+
+say_hello("Vijay")
+```
+
 * Documentation
  * The Python Tutorial : https://docs.python.org/3.11/tutorial/index.html
  * Python Documentation: https://docs.python.org/3.11/index.html
