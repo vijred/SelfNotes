@@ -5,7 +5,7 @@
 ** Command to test proxy settings (Powershell - `netsh winhttp show proxy`
 
 ** Best way to validate a connection with and without using proxy - `curl.exe -x http://proxyweb-server.mydomain.com:80 -v http://example.com:80`; Remove -x option to remove proxy; `test-netconnection servername:port` does not use the $env:HTTPS_PROXY setting
-
+** Alternative option is to use Python. Example - `python3 -c "import socket; s=socket.socket(); s.settimeout(3); s.connect(('example.com', 80)); print('Connected')"`
 
 ## Windows (PowerShell)
 
