@@ -33,6 +33,29 @@ Get-AzStorageAccountNetworkRuleSet -ResourceGroupName rg-myresourcegroup -Name N
 Add-AzStorageAccountNetworkRule -ResourceGroupName rg-myresourcegroup -Name NyStorageName -VirtualNetworkResourceId  "/subscriptions/asfdsfd-sadf-safdf-dsaf-safdsf/resourceGroups/prod-e..."
 ```
 
+* Azure Container Instance creation using User Managed identity with Contaienr Registry in secured (Private Endpoint)
+```
+az account set --subscription "<SUBSCRIPTION_ID>"
+az account show --query name --output tsv
+
+RESOURCE_GROUP="<RG>"
+ACR_LOGIN_SERVER="<ACR>.azurecr.io"
+CONTAINER_NAME="debug-$(date +%s)"
+UAMI="/subscriptions/<SUB_ID>/resourceGroups/<RG>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAMI>"
+
+az container create \
+  --name $CONTAINER_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --image $ACR_LOGIN_SERVER/<IMAGE>:latest \
+  --cpu 4 --memory 8 \
+  --vnet "<VNET_RESOURCE_ID>" \
+  --subnet "<SUBNET_NAME>" \
+  --assign-identity "$UAMI" \
+  --acr-identity "$UAMI" \
+  --command-line "sleep 600"
+```
+
+
 
 * What is the best way to removely login into a VM which is in a Subnet - BASTION
   * Hopw to login to a remove Linux server created in Azure - https://learn.microsoft.com/en-us/azure/virtual-machines/linux/use-remote-desktop?tabs=azure-cli 
