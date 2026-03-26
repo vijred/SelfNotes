@@ -20,6 +20,8 @@ Netowrk utils
     - One you see the error message pop up, enter the following command to stop the network trace- `Netsh trace stop`
     - Navigate to C drive on your machine and share the mmagent.etl for analysis with required team
 
+* One line pythonway to vlaidate connection - `python -c "import socket; print('Success' if socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect_ex(('google.com', 443)) == 0 else 'Fail')"`
 
 ## Lunux commands
 https://github.com/vijred/SelfNotes/blob/2e92eaca9d952e0431babfab1fcf9b6c066befb7/Linux/Commands/Readme.Linux.Commands.md#network-related-commands
+
