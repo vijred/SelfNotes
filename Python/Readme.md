@@ -114,6 +114,7 @@ EOF
 ```
 
 * Sample to valdiate network connectivity
+* One liner - `python -c "import socket; print('Success' if socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect_ex(('google.com', 443)) == 0 else 'Fail')"`
 ```
 import socket
 
