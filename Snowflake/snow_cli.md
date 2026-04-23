@@ -91,6 +91,12 @@ snow sql -q "SHOW SHARES" --connection my_conn
 snow sql -1 "SHOW DATABASES" --connection my_con
 
 ```
-* 
-* 
+* How to heck a connection -
+`snow connection test -c PAT_MyConnection_RW_PR`
+
+* How to load data into Powershell objet - 
+```
+$tables = (snow sql -q "show databases" -c myconnectionxyz  --format json | ConvertFrom-Json)
+```
+
 * 
