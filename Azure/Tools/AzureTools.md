@@ -61,4 +61,4 @@ az container create \
   * Hopw to login to a remove Linux server created in Azure - https://learn.microsoft.com/en-us/azure/virtual-machines/linux/use-remote-desktop?tabs=azure-cli 
 
 * Privileged Identity Management
-  * https://portal.azure.com/?Microsoft_Azure_PIMCommon=true#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/azurerbacbrowse -> This is the way to restrict access to a given resource. SEarch for the resource -> Manage -> Approve r providce access using Privileged Identity.
+  * https://portal.azure.com/?Microsoft_Azure_PIMCommon=true#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/azurerbacbrowse -> This is the way to restrict access to a given resource. SEarch for the resource -> Manage -> Approve r providce access using Privileged Identity. (Ref: https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure) 
