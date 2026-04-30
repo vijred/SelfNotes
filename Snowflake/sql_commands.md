@@ -31,7 +31,7 @@ SELECT LAST_QUERY_ID();
 Example:
 ```
 SHOW WAREHOUSES;
-SELECT * FROM RESULT_SCAN(LAST_QUERY_ID());
+SELECT * FROM TABLE(RESULT_SCAN(LAST_QUERY_ID()));
 ```
 
 
@@ -51,5 +51,5 @@ SHOW DATABASES;
 SET my_query_id = LAST_QUERY_ID();
 
 -- Later, retrieve those results using the query ID
-SELECT * FROM RESULT_SCAN($my_query_id);
+SELECT * FROM TABLE(RESULT_SCAN($my_query_id));
 ```
