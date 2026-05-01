@@ -9,7 +9,28 @@ Self hosted Integration Runtime -
   * Do I need to intall JRE? JER or Open JDK is needed to convert dataset into .Parquet files in the system. Ref:  https://learn.microsoft.com/en-us/azure/purview/scanning-shir-troubleshooting
     * Of JRE is installed, there is no dependency with JAVA_HOME, if Open JDK is installed add JAVA_HOME system variable referencing to jre location of OpenJDK. (Ref: https://learn.microsoft.com/en-us/azure/purview/manage-integration-runtimes#java-runtime-environment-installation)
   * How to reregister a SHIR Node - Edit Powershell Script (Example location: C:\Program Files\Microsoft Integration Runtime\5.0\PowerShellScript\RegisterIntegrationRuntime.ps1). Add $gatewayKey, and $NodeName parametes and run as Administrator.
+  * Sample to see events from Self Hosted Integration Runtime Server
+```
+Get-WinEvent -LogName "Connectors – Integration Runtime" |
+Where-Object {
+    $_.TimeCreated -ge $Start -and
+    $_.TimeCreated -le $End -and
+    $_.Message -match "Oracle|ODP|1521|TNS"
+}
 
+
+$Start = Get-Date "2026-05-01 12:00:00"
+$End   = Get-Date "2026-05-01 12:05:00"
+
+Get-WinEvent -LogName "Integration Runtime" |
+Where-Object {
+    $_.TimeCreated -ge $Start -and
+    $_.TimeCreated -le $End
+} |
+Select TimeCreated, Id, LevelDisplayName, Message |
+Export-Csv "C:\Temp\SHIR_IntegrationRuntime_1200_1205.csv" -NoTypeInformation
+
+```
 
 * How to clone ADF Workspace to a new workspace?
   * https://learn.microsoft.com/en-us/azure/data-factory/copy-clone-data-factory 
