@@ -17,7 +17,7 @@ $tables | Select-Object -First 3 | ForEach-Object {
 Sample Connection file (Sample location: C:\Users\username\AppData\Local\snowflake\config.toml)
 ```
 [connections.SampleConnectionname]
-account = "gfa12121.east-us-2.azure"
+account = "sdfsdf23232.east-us-2.azure"
 user = "myusername"
 password = "UserPAT"
 database = "myDatabase"
@@ -25,6 +25,19 @@ schema = "MySchema"
 warehouse = "MyWarehosue"
 role = "MyRole"
 ```
+
+How to authenticate from browser while using snow clie command? (Sample location: C:\Users\username\AppData\Local\snowflake\config.toml)
+```
+[connections.SampleConnectionname2]
+account = "sdfsdf23232.east-us-2.azure"
+user = "myusername"
+authenticator = "externalbrowser"
+database = "myDatabase"
+schema = "MySchema"
+warehouse = "MyWarehosue"
+role = "MyRole"
+```
+
 
 Sample SNOW Command to query data 
 `snow sql -c "myconnection" -q "Select * from myDB.mySchema.myTable LIMIT 2;"`
