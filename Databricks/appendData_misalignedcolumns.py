@@ -71,14 +71,6 @@ try:
     history_df = spark.sql(f"DESCRIBE HISTORY {target_table_name}")
     latest_version = history_df.head()[0]
 
-    # Compare latest_version - earlier_version
-
-    dbutils.notebook.exit(json.dumps({
-        "status": "Success",
-        "table": target_table_name,
-        "delta_version": latest_version
-    }))
-
 except Exception as e:
     dbutils.notebook.exit(json.dumps({
         "status": "Error",
@@ -86,4 +78,12 @@ except Exception as e:
         "table": "<target_table>",
         "error": str(e)
     }))
+
+# Note, Exit should never be inside try catch, that will through exception even on success!
+# Compare latest_version - earlier_version
+dbutils.notebook.exit(json.dumps({
+    "status": "Success",
+    "table": target_table_name,
+    "delta_version": latest_version
+}))
 
