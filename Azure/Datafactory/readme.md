@@ -67,5 +67,30 @@ New-AzRoleAssignment `
      * <img width="471" height="559" alt="image" src="https://github.com/user-attachments/assets/f2d7e4f0-ec2f-404b-942d-771a4f430f18" />
  
 
-   
+ * What is the quick way to check the history and filter based on the paramteers -
+```
+# ✅ Parameters
+SUBSCRIPTION_ID="adff-asdf-dsf-sdfse-dsgfsff"
+ADF_NAME="dataf-asdffdsasdf-001"
+RESOURCE_GROUP="rg-sdfgfggsfd-001"
+SEARCH_TEXT="myparametersearch"
+
+# ✅ Set subscription
+az account set --subscription $SUBSCRIPTION_ID
+
+# ✅ Time window (last 24 hours)
+START=$(date -u -d "24 hours ago" +"%Y-%m-%dT%H:%M:%SZ")
+END=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+# ✅ Query
+az datafactory pipeline-run query-by-factory \
+  --resource-group $RESOURCE_GROUP \
+  --factory-name $ADF_NAME \
+  --last-updated-after $START \
+  --last-updated-before $END \
+  --query "value[?contains(to_string(parameters), '$SEARCH_TEXT')].[pipelineName, runId, status, parameters]" \
+  -o table
+``
+```
+ * 
 
