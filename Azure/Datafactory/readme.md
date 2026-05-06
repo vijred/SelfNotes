@@ -91,6 +91,22 @@ az datafactory pipeline-run query-by-factory \
   --query "value[?contains(to_string(parameters), '$SEARCH_TEXT')].[pipelineName, runId, status, parameters]" \
   -o table
 ``
+
+# Once you have the RunID, you can check subtasks details as well -
+
+
+$RUN_ID = "<your-run-id>"
+
+az datafactory activity-run query-by-pipeline-run `
+  --resource-group $RESOURCE_GROUP `
+  --factory-name $ADF_NAME `
+  --run-id $RUN_ID `
+  --last-updated-after $START `
+  --last-updated-before $END `
+  --query "value[].{Activity:activityName, Status:status, Type:type, Start:activityRunStart, End:activityRunEnd, Duration:durationInMs}" `
+  -o table
+
+
 ```
  * 
 
