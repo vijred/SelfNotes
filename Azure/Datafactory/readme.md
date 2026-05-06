@@ -107,6 +107,17 @@ az datafactory activity-run query-by-pipeline-run `
   -o table
 
 
+# More filters -
+
+--query "value[?status=='Failed']"
+--query "value[?status=='Failed'].[activityName, error.message]"
+--query "value[].{Activity:activityName, Output:output}
+
+# Top 5 longest running -
+--query "value | sort_by(@, &durationInMs)[-5:].{Activity:activityName, Duration:durationInMs, Status:status}"
+
+# timestamp -
+--query "value | sort_by(@, &durationInMs)[-5:].{Activity:activityName, Duration:durationInMs, Status:status, Start:activityRunStart}"
 ```
  * 
 
