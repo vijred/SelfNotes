@@ -1,5 +1,5 @@
 
-Quick way to connect and validate a connection to neo4j server
+Quick way to connect and validate a connection to neo4j server (bash)
 
 ```
 python - <<'PY'
