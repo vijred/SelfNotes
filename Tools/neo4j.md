@@ -6,8 +6,8 @@ python - <<'PY'
 from neo4j import GraphDatabase
 
 URI = "bolt://12.12.12.12:7687"
-USER = "skeeky"
-PASSWORD = "oh yea"
+USER = "asfdasdf"
+PASSWORD = "sfsdffsd"
 
 driver = GraphDatabase.driver(
     URI,
