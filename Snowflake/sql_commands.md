@@ -15,6 +15,21 @@ SHOW GRANTS OF ROLE RoleName;
 ```
 
 
+Command to see all the SQL Statements from Query history including Role details -
+```
+SELECT
+    QUERY_ID,
+    USER_NAME,
+    ROLE_NAME,
+    QUERY_TEXT,
+    START_TIME
+FROM TABLE(INFORMATION_SCHEMA.QUERY_HISTORY())
+ORDER BY START_TIME DESC
+LIMIT 100;
+```
+
+
+
 RESULT_SCAN() Quick Guide
 ===============
 What is RESULT_SCAN()?
